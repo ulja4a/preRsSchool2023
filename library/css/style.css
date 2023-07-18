@@ -121,3 +121,7 @@ ul {
   display: flex;
 }
 
+.welcome {
+  height: 690px;
+  background: url(../assets/img/welcome.png) no-repeat;
+}
