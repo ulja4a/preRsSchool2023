@@ -49,3 +49,70 @@ dd {
   font-weight: 400;
   src: url('../assets/fonts/forum-v16-latin-regular.woff2') format('woff2'); 
 }
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+header {
+  background: #0C0C0E;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header__wrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  padding-right: 30px;
+}
+
+.nav-item:last-child {
+  padding-right: 40px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+}
+
