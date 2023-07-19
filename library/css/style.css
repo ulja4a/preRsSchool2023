@@ -1,0 +1,167 @@
+/* Задаем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/inter-v12-latin-regular.woff2') format('woff2'); 
+}
+
+/* inter-700 - latin */
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/inter-v12-latin-700.woff2') format('woff2'); 
+}
+
+/* forum-regular - latin */
+@font-face {
+  font-display: swap; 
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/forum-v16-latin-regular.woff2') format('woff2'); 
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+header {
+  background: #0C0C0E;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header__wrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  padding-right: 30px;
+}
+
+.nav-item:last-child {
+  padding-right: 40px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.nav-item a:hover {
+  color: #BB945F;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+}
+
+.welcome {
+  height: 600px;
+  background: url(../assets/img/welcome.png) no-repeat center;
+  background-size: cover;
+}
+
+.welcome__wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.welcome-bg {
+  position: relative;
+  top: 220px;
+  background: #0C0C0E;
+  width: 600px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  display: flex;
+  flex-shrink: 0;
+  height: 300px;
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%);
+}
+
+.welcome-title {
+  text-transform: uppercase;
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 3px;
+  padding: 35px 40px;
+  text-align: center;
+  color: #FFFFFF;
+}
