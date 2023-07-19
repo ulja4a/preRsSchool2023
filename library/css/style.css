@@ -50,6 +50,10 @@ dd {
   src: url('../assets/fonts/forum-v16-latin-regular.woff2') format('woff2'); 
 }
 
+html {
+  scroll-behavior: smooth; 
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -122,6 +126,42 @@ ul {
 }
 
 .welcome {
-  height: 690px;
-  background: url(../assets/img/welcome.png) no-repeat;
+  height: 600px;
+  background: url(../assets/img/welcome.png) no-repeat center;
+  background-size: cover;
+}
+
+.welcome__wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.welcome-bg {
+  position: relative;
+  top: 220px;
+  background: #0C0C0E;
+  width: 600px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  display: flex;
+  flex-shrink: 0;
+  height: 300px;
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%);
+}
+
+.welcome-title {
+  text-transform: uppercase;
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 3px;
+  padding: 35px 40px;
+  text-align: center;
+  color: #FFFFFF;
 }
