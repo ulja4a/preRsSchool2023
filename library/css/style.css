@@ -178,7 +178,7 @@ ul {
   color: #000;
 }
 
-.about__line {
+.line {
   margin: auto;
   width: 50px;
   height: 1px;
@@ -210,4 +210,50 @@ ul {
 
 .element__pagination {
   cursor: pointer;
+}
+
+.favorites__title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.favorites__text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.2px;
+  padding-top: 40px;
+  color: #000;
+}
+
+.seasones {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.seasone_radio {
+  display: flex;
+  padding-right: 90px;
+}
+
+.radio_input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.radio_label {
+  padding-left: 20px;
+  line-height: 24px;
+  color: #000;
+}
+
+.radio_input:checked+.radio_label {
+  font-weight: 700;
 }
