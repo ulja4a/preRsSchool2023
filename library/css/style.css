@@ -131,17 +131,11 @@ ul {
   background-size: cover;
 }
 
-.welcome__wrapper {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .welcome-bg {
-  position: relative;
-  top: 220px;
+  position: absolute;
+  top: 310px;
   background: #0C0C0E;
   width: 600px;
-  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +143,6 @@ ul {
 
 .overlay {
   display: flex;
-  flex-shrink: 0;
   height: 300px;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%);
 }
