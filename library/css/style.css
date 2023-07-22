@@ -265,6 +265,9 @@ ul {
 }
 
 .card-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #000;
   width: 550px;
   margin-left:  260px;
@@ -283,7 +286,7 @@ ul {
   letter-spacing: 2px;
   color: #000;
   margin: 0;
-  padding: 14px 0 0 19px;
+  padding-top: 14px;
   position: relative;
 }
 
@@ -291,7 +294,7 @@ ul {
   content: "";
   position: absolute;
   top: 51px;
-  left: 20px;
+  left: 0px;
   width: 60px; 
   border: 1px solid #BB945F;
 }
@@ -303,11 +306,17 @@ ul {
   line-height: 40px;
   letter-spacing: 2px;
   color: #000;
-  padding: 18px 0 19px 19px;
+  padding: 18px 0 19px 0px;
 }
 
 .book_title {
   text-transform: uppercase;
+}
+
+.block_no-button {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px 19px;
 }
 
 .book__description {
@@ -316,7 +325,7 @@ ul {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  padding: 0 174px 14px 19px;
+  padding-right: 174px;
   text-transform: capitalize;
 }
 
@@ -335,7 +344,21 @@ ul {
   line-height: 12px;
   letter-spacing: 1px;
   text-align: center;
+  margin-left: 19px;
+  margin-bottom: 14px;
+  color: #000;
+  transition: color 0.5s;
   width: 75px;
   height: 30px;
-  margin: 0 0 14px 19px;
+}
+
+.book__button:hover {
+  background: #BB945F;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.button__colored {
+  color: #BB945F;
 }
