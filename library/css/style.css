@@ -346,7 +346,9 @@ ul {
   text-align: center;
   margin-left: 19px;
   margin-bottom: 14px;
-  color: #000;
+  background: none;
+  border: 1px solid #0C0C0E;
+  color: #0C0C0E;
   transition: color 0.5s;
   width: 75px;
   height: 30px;
@@ -361,4 +363,11 @@ ul {
 
 .button__colored {
   color: #BB945F;
+  border: 1px solid #BB945F;
+}
+
+.button__colored:hover {
+  cursor: default;
+  border: 1px solid #BB945F;
+  background: none;
 }
