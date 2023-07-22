@@ -60,6 +60,7 @@ body {
   font-family: 'Inter';
   font-weight: 400;
   font-size: 20px;
+  color: #0C0C0E;
 }
 
 header {
@@ -131,17 +132,11 @@ ul {
   background-size: cover;
 }
 
-.welcome__wrapper {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .welcome-bg {
-  position: relative;
-  top: 220px;
+  position: absolute;
+  top: 310px;
   background: #0C0C0E;
   width: 600px;
-  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +144,6 @@ ul {
 
 .overlay {
   display: flex;
-  flex-shrink: 0;
   height: 300px;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%);
 }
@@ -164,4 +158,184 @@ ul {
   padding: 35px 40px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.about__title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.about__text {
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding-top: 40px;
+  color: #000;
+}
+
+.line {
+  margin: auto;
+  width: 50px;
+  height: 1px;
+}
+
+.about__slider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.slider__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 35px 0;
+}
+
+.element__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+}
+
+.element__pagination {
+  cursor: pointer;
+}
+
+.favorites__title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.favorites__text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.2px;
+  padding-top: 40px;
+  color: #000;
+}
+
+.seasones {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.seasone_radio {
+  display: flex;
+  padding-right: 90px;
+}
+
+.radio_input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.radio_label {
+  padding-left: 20px;
+  line-height: 24px;
+  color: #000;
+}
+
+.radio_input:checked+.radio_label {
+  font-weight: 700;
+}
+
+.favorites-items {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 43px;
+}
+
+.card-book {
+  border: 1px solid #000;
+  width: 550px;
+  margin-left:  260px;
+  position: relative;
+}
+
+.card-book:nth-child(odd) {
+  margin-left: 0;
+}
+
+.book__staff {
+  font-family: Forum;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+  margin: 0;
+  padding: 14px 0 0 19px;
+  position: relative;
+}
+
+.book__staff::after {
+  content: "";
+  position: absolute;
+  top: 51px;
+  left: 20px;
+  width: 60px; 
+  border: 1px solid #BB945F;
+}
+
+.book__name {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+  padding: 18px 0 19px 19px;
+}
+
+.book_title {
+  text-transform: uppercase;
+}
+
+.book__description {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding: 0 174px 14px 19px;
+  text-transform: capitalize;
+}
+
+.book__img {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
+}
+
+.book__button {
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 75px;
+  height: 30px;
+  margin: 0 0 14px 19px;
 }
