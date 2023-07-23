@@ -376,7 +376,8 @@ ul {
   background: none;
 }
 
-.shop__title {
+.shop__title,
+.contacts__title {
   font-family: Forum;
   font-size: 40px;
   font-weight: 400;
@@ -480,4 +481,54 @@ ul {
   display: flex;
   align-items: center;
   gap: 60px;
+}
+
+.contacts-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.info_title {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.phone,
+.info_text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.mail {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.info_phone {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.info_item {
+  display: flex;
+}
+
+.info_block2 {
+  display: flex;
+  padding-top: 20px;
 }
