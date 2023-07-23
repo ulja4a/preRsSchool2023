@@ -182,6 +182,9 @@ ul {
   margin: auto;
   width: 50px;
   height: 1px;
+  border: none;
+  color: #0C0C0E;
+  background-color: #0C0C0E;
 }
 
 .about__slider {
@@ -262,6 +265,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   row-gap: 43px;
+  padding-bottom: 40px;
 }
 
 .card-book {
@@ -306,7 +310,7 @@ ul {
   line-height: 40px;
   letter-spacing: 2px;
   color: #000;
-  padding: 18px 0 19px 0px;
+  padding: 20px 0 20px 0px;
 }
 
 .book_title {
@@ -325,7 +329,7 @@ ul {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  padding-right: 174px;
+  padding-right: 172px;
   text-transform: capitalize;
 }
 
@@ -345,7 +349,7 @@ ul {
   letter-spacing: 1px;
   text-align: center;
   margin-left: 19px;
-  margin-bottom: 14px;
+  margin-bottom: 13px;
   background: none;
   border: 1px solid #0C0C0E;
   color: #0C0C0E;
@@ -370,4 +374,110 @@ ul {
   cursor: default;
   border: 1px solid #BB945F;
   background: none;
+}
+
+.shop__title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding: 20px 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.shop__text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.shop__menu {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.menu_drinks,
+.menu_desserts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menu_drinks_title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #BB945F;
+}
+
+.menu_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.line_price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.name_item {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: #000;
+}
+
+.price_item {
+  font-family: Forum;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.line_item {
+  width: 100px;
+  height: 1px;
+  color: #BB945F;
+  background-color: #BB945F;
+  border: none;
+}
+
+.menu_desserts_title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #BB945F;
+  text-align: right;
+}
+
+.menu_item2 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 60px;
+}
+
+.line_price2 {
+  display: flex;
+  align-items: center;
+  gap: 60px;
 }
