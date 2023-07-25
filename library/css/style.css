@@ -597,6 +597,12 @@ ul {
   padding: 8px 0 8px 20px;
 }
 
+.card-bg_input-text:focus,
+.card-bg_input-number:focus {
+  border-color: #BB945F;
+  outline: none;
+}
+
 .check-card_button {
   margin: auto;
   padding-bottom: 30px;
