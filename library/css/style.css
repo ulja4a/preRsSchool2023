@@ -353,7 +353,7 @@ ul {
   background: none;
   border: 1px solid #0C0C0E;
   color: #0C0C0E;
-  transition: color 0.5s;
+  transition: 0.5s;
   width: 75px;
   height: 30px;
 }
@@ -612,6 +612,7 @@ ul {
   text-align: center;
   color: #0C0C0E;
   background: #FFFFFF;
+  transition: 0.5s;
   padding: 10px 40px;
 }
 
@@ -657,7 +658,16 @@ ul {
   text-align: center;
   color: #0C0C0E;
   background: #FFFFFF;
+  transition: 0.5s;
   width: 75px;
   height: 30px;
+}
+
+.register:hover,
+.check-card_button-text:hover {
+  background: #BB945F;
+  border: 1px solid #BB945F;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
