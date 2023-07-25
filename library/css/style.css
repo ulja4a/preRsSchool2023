@@ -376,13 +376,15 @@ ul {
   background: none;
 }
 
-.shop__title {
+.shop__title,
+.contacts__title,
+.cards__title {
   font-family: Forum;
   font-size: 40px;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  padding: 20px 0;
+  padding: 19px 0;
   text-align: center;
   text-transform: capitalize;
 }
@@ -481,3 +483,181 @@ ul {
   align-items: center;
   gap: 60px;
 }
+
+.contacts-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.info_title {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.phone,
+.info_text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.mail {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.info_phone {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.info_item {
+  display: flex;
+}
+
+.info_block2 {
+  display: flex;
+  padding-top: 20px;
+}
+
+.digital_cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.find_card-title {
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 40px 0 30px 0;
+}
+
+.find_card-body {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #BB945F;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  width: 600px;
+}
+
+.find_card-bg {
+  background: #BB945F;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 19px 19px 25px 19px;
+}
+
+.card-bg_title {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.card-bg_input {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.card-bg_input-text,
+.card-bg_input-number {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #8E8E8E;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 0 8px 20px;
+}
+
+.check-card_button {
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+.check-card_button-text {
+  border: 1px solid #0C0C0E;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #0C0C0E;
+  background: #FFFFFF;
+  padding: 10px 40px;
+}
+
+.get_card {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: end;
+  width: 456px;
+  padding-top: 40px;
+}
+
+.get_card-title {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.get_card-text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.get_card-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.register {
+  border: 1px solid #0C0C0E;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #0C0C0E;
+  background: #FFFFFF;
+  width: 75px;
+  height: 30px;
+}
+
