@@ -295,18 +295,20 @@
           <div class="find_card">
             <p class="find_card-title">Find your Library card</p>
             <div class="find_card-body">
-              <div class="find_card-bg">
-                <p class="card-bg_title">Brooklyn Public Library</p>
-                <div class="card-bg_input">
-                  <input class="card-bg_input-text" type="text" id="input-text" 
+              <form action method="POST">
+                <div class="find_card-bg">
+                  <p class="card-bg_title">Brooklyn Public Library</p>
+                  <div class="card-bg_input">
+                    <input class="card-bg_input-text" type="text" id="input-text" 
                         name="firstname" value="Reader's name" pattern="[0-9A-Za-z-]">
-                  <input class="card-bg_input-number" type="text" id="input-text" 
+                    <input class="card-bg_input-number" type="text" id="input-text" 
                         name="cardnumber" value="Card number" pattern="[^0-9]">
+                  </div>
                 </div>
-              </div>
-              <div class="check-card_button">
-                <button class="check-card_button-text">Check the card</button>
-              </div>
+              </form>
+                <div class="check-card_button">
+                  <button class="check-card_button-text">Check the card</button>
+                </div>
             </div>
           </div>
           <div class="get_card">
@@ -322,5 +324,42 @@
       </div>
     </section>
   </main>
+  <footer class="footer">
+    <div class="wrapper">
+      <div class="footer__contacts">
+        <div class="footer_frame1">
+          <a class="adress" href="https://goo.gl/maps/oq8p223VFmZHkJoQA">
+            <p class="footer__text">286 Cadman Plaza, New York,<br> NY 11238, United States</p></a>
+          <p class="footer__shedule">Mon - Fri<br>
+            08:00 am - 07:00 pm</p>
+        </div>
+        <div class="footer_frame2">
+          <div class="footer_social">
+            <div class="social-media">
+              <a class="twitter" href="https://twitter.com"><span class="ico-tw"></span></a>
+              <a class="instagram" href="https://instagram.com"><span class="ico-insta"></span></a>
+              <a class="fb" href="https://facebook.com"><span class="ico-fb"></span></a>
+            </div>
+          </div>
+          <div class="footer__shedule"><p>Sat - Sun<br>
+            10:00 am - 06:00 pm</p>
+          </div>
+        </div>
+      </div>
+      <hr class="footer__line">
+      <div class="footer_link-rss">
+        <div class="footer_left">
+          <p class="year">2023</p>
+        </div>
+        <div class="footer_center">
+          <a class="footer_link-rs-school" href="https://rs.school/js/">The Rolling Scopes School</a>
+        </div>
+        <div class="footer_right">
+          <a class="footer_link-github" href="https://github.com/ulja4a">Ulyana Tkachenko</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="index.js"></script>
 </body>
 </html>

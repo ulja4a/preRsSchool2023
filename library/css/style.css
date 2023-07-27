@@ -353,7 +353,7 @@ ul {
   background: none;
   border: 1px solid #0C0C0E;
   color: #0C0C0E;
-  transition: color 0.5s;
+  transition: 0.5s;
   width: 75px;
   height: 30px;
 }
@@ -537,6 +537,7 @@ ul {
 .digital_cards {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 37px;
 }
 
 .find_card-title {
@@ -597,6 +598,12 @@ ul {
   padding: 8px 0 8px 20px;
 }
 
+.card-bg_input-text:focus,
+.card-bg_input-number:focus {
+  border-color: #BB945F;
+  outline: none;
+}
+
 .check-card_button {
   margin: auto;
   padding-bottom: 30px;
@@ -612,6 +619,7 @@ ul {
   text-align: center;
   color: #0C0C0E;
   background: #FFFFFF;
+  transition: 0.5s;
   padding: 10px 40px;
 }
 
@@ -657,7 +665,141 @@ ul {
   text-align: center;
   color: #0C0C0E;
   background: #FFFFFF;
+  transition: 0.5s;
   width: 75px;
   height: 30px;
 }
 
+.register:hover,
+.check-card_button-text:hover {
+  background: #BB945F;
+  border: 1px solid #BB945F;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.footer {
+  background: #0C0C0E;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0 30px 0;
+}
+
+.footer_frame1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__text {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #FFFFFF;
+}
+
+.footer__shedule {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.footer_frame2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_social {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.twitter {
+  background-image: url(../assets/img/twitter.svg);
+  width: 24px;
+  height: 24px;
+}
+
+.instagram {
+  background-image: url(../assets/img/instagram.svg);
+  width: 24px;
+  height: 24px;
+}
+
+.fb {
+  background-image: url(../assets/img/facebook-f.svg);
+  width: 24px;
+  height: 24px;
+}
+
+.footer__line {
+  background: #FFFFFF;
+  width: 100%;
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
+.footer_link-rss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 44px 0;
+  position: relative;
+}
+
+.year {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.footer_link-rs-school {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.footer_link-github {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.footer_left {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+.footer_right {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
