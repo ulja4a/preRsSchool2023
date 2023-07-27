@@ -360,7 +360,7 @@ ul {
 
 .book__button:hover {
   background: #BB945F;
-  border: none;
+  border: 1px solid #BB945F;
   border-radius: 2px;
   cursor: pointer;
 }
