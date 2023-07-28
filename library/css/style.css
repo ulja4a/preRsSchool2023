@@ -243,21 +243,56 @@ ul {
 .seasone_radio {
   display: flex;
   padding-right: 90px;
+  align-items: center;
 }
 
 .radio_input {
-  width: 17px;
-  height: 17px;
-  margin: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  cursor: pointer;
 }
 
 .radio_label {
-  padding-left: 20px;
   line-height: 24px;
   color: #000;
+  cursor: pointer;
+  position: relative;
 }
 
-.radio_input:checked+.radio_label {
+.custom_radio {
+  display: inline-block;
+  position: relative;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #000000;
+  background: #FFFFFF;
+  border-radius: 50%;
+  vertical-align: text-top;
+  margin-right: 20px;
+}
+
+.custom_radio::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 7px;
+  height: 7px;
+  background: #000000;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.radio_input:checked+.custom_radio:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio_input:checked~.radio_label {
   font-weight: 700;
 }
 
@@ -276,6 +311,10 @@ ul {
   width: 550px;
   margin-left:  260px;
   position: relative;
+}
+
+.unvisible {
+  display: none;
 }
 
 .card-book:nth-child(odd) {
@@ -507,6 +546,7 @@ ul {
   line-height: 40px;
   letter-spacing: 2px;
   color: #000;
+  text-transform: capitalize;
 }
 
 .mail {
