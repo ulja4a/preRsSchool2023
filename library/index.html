@@ -20,7 +20,7 @@
             <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
             <li class="nav-item"><a href="#shop" class="nav-link">Coffee shop</a></li>
             <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-            <li class="nav-item"><a href="#card" class="nav-link">Library Card</a></li>
+            <li class="nav-item"><a href="#cards" class="nav-link">Library Card</a></li>
           </ul>
         </nav>
         <img class="icon" src="assets/img/subtract.svg" alt="icon_profile">
@@ -74,18 +74,22 @@
         <div class="seasones">
           <div class="seasone_radio">
             <input class="radio_input" type="radio" id="radio1" name="season" value="winter" checked>
+            <span class="custom_radio"></span>
             <label for="radio1" class="radio_label">Winter</label>
           </div>
           <div class="seasone_radio">
             <input class="radio_input" type="radio" id="radio2" name="season" value="spring">
+            <span class="custom_radio"></span>
             <label for="radio2" class="radio_label">Spring</label>
           </div>
           <div class="seasone_radio">
             <input class="radio_input" type="radio" id="radio3" name="season" value="summer">
+            <span class="custom_radio"></span>
             <label for="radio3" class="radio_label">Summer</label>
           </div>
           <div class="seasone_radio">
             <input class="radio_input" type="radio" id="radio4" name="season" value="autumn">
+            <span class="custom_radio"></span>
             <label for="radio4" class="radio_label">Autumn</label>
           </div>
         </div>
@@ -144,7 +148,179 @@
               </p>
               <img src="./assets/img/winter_book4.png" alt="The Last Queen" class="book__img">
             </div>
-            <button class="book__button button__colored">Own</button>
+            <button class="book__button button__colored" disabled>Own</button>
+          </div>
+
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">The Body</span><br>
+                By Stephen King</h3>
+              <p class="book__description">
+                Powerful novel that takes you back to a nostalgic time, 
+                exploring both the beauty and danger and loss of innocence that is youth.
+              </p>
+              <img src="./assets/img/spring_book1.png" alt="The Body" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Carry: A Memoir of Survival on Stolen Land</span><br>
+                By Toni Jenson</h3>
+              <p class="book__description">
+                This memoir about the author's relationship with gun violence feels both expansive and intimate, 
+                resulting in a lyrical indictment of the way things are.
+              </p>
+              <img src="./assets/img/spring_book2.png" alt="A Memoir of Survival on Stolen Land" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Days of Distraction</span><br>
+                By Alexandra Chang</h3>
+              <p class="book__description">
+                A sardonic view of Silicon Valley culture, a meditation on race, 
+                and a journal of displacement and belonging, all in one form-defying package of spare prose.
+              </p>
+              <img src="./assets/img/spring_book3.png" alt="Days of Distraction" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Dominicana</span><br>
+                By Angie Cruz</h3>
+              <p class="book__description">
+                A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. 
+                Her marriage is an opportunity for her family to eventually immigrate. 
+                For fans of Isabel Allende and Julia Alvarez.
+              </p>
+              <img src="./assets/img/spring_book4.png" alt="Dominicana" class="book__img">
+            </div>
+            <button class="book__button button__colored" disabled>Own</button>
+          </div>
+
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Crude: A Memoir</span><br>
+                By Pablo Fajardo &amp; 
+                Sophie Tardy-Joubert</h3>
+              <p class="book__description">
+                Drawing and color by Damien Roudeau | This book illustrates the struggles of a group 
+                of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did 
+                to the Amazon and her people
+              </p>
+              <img src="./assets/img/summer_book1.png" alt="Crude: A Memoir" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Let My People Go Surfing</span><br>
+                By Yvon Chouinard</h3>
+              <p class="book__description">
+                Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence 
+                from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: 
+                The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
+              </p>
+              <img src="./assets/img/summer_book2.png" alt="Let My People Go Surfing" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">The Octopus Museum: Poems</span><br>
+                By Brenda Shaughnessy</h3>
+              <p class="book__description">
+                This collection of bold and scathingly beautiful feminist poems imagines 
+                what comes after our current age of environmental destruction, 
+                racism, sexism, and divisive politics.
+              </p>
+              <img src="./assets/img/summer_book3.png" alt="The Octopus Museum: Poems" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Shark Dialogues: A Novel</span><br>
+                By Kiana Davenport</h3>
+              <p class="book__description">
+                An epic saga of seven generations of one family encompasses 
+                the tumultuous history of Hawaii as a Hawaiian woman gathers her four 
+                granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, 
+                lepers and healers.
+              </p>
+              <img src="./assets/img/summer_book4.png" alt="Shark Dialogues: A Novel" class="book__img">
+            </div>
+            <button class="book__button button__colored" disabled>Own</button>
+          </div>
+
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Casual Conversation</span><br>
+                By Renia White</h3>
+              <p class="book__description">
+                White's impressive debut collection takes readers through 
+                and beyond the concepts of conversation and the casual - both 
+                what we say to each other and what we don't, 
+                examining the possibilities around how we construct and communicate identity.
+              </p>
+              <img src="./assets/img/autumn_book1.png" alt="Casual Conversation" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">The Great Fire</span><br>
+                By Lou Ureneck</h3>
+              <p class="book__description">
+                The harrowing story of an ordinary American 
+                and a principled Naval officer who, horrified by the burning of Smyrna, 
+                led an extraordinary rescue effort that saved a quarter of a million refugees 
+                from the Armenian Genocide
+              </p>
+              <img src="./assets/img/autumn_book2.png" alt="The Great Fire" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Rickey: The Life and Legend</span><br>
+                By Howard Bryant</h3>
+              <p class="book__description">
+                With the fall rolling around, one can't help but think of baseball's postseason coming up! 
+                And what better way to prepare for it than reading 
+                the biography of one of the game's all-time greatest performers, 
+                the Man of Steal, Rickey Henderson?
+              </p>
+              <img src="./assets/img/autumn_book3.png" alt="Rickey: The Life and Legend" class="book__img">
+            </div>
+            <button class="book__button button">Buy</button>
+          </div>
+          <div class="card-book unvisible">
+            <div class="block_no-button">
+              <p class="book__staff">Staff Picks</p>
+              <h3 class="book__name"><span class="book_title">Slug: And Other Stories</span><br>
+                By Megan Milks</h3>
+              <p class="book__description">
+                Exes Tegan and Sara find themselves chained together by hairballs of codependency. 
+                A father and child experience the shared trauma of giving birth to gods from their wounds.
+              </p>
+              <img src="./assets/img/autumn_book4.png" alt="Slug: And Other Stories" class="book__img">
+            </div>
+            <button class="book__button button__colored" disabled>Own</button>
           </div>
         </div>
       </div>
@@ -335,11 +511,11 @@
         </div>
         <div class="footer_frame2">
           <div class="footer_social">
-            <div class="social-media">
-              <a class="twitter" href="https://twitter.com"><span class="ico-tw"></span></a>
-              <a class="instagram" href="https://instagram.com"><span class="ico-insta"></span></a>
-              <a class="fb" href="https://facebook.com"><span class="ico-fb"></span></a>
-            </div>
+            <ul class="social-media">
+              <li><a class="twitter" href="https://twitter.com"><span class="ico-tw"></span></a></li>
+              <li><a class="instagram" href="https://instagram.com"><span class="ico-insta"></span></a></li>
+              <li><a class="fb" href="https://facebook.com"><span class="ico-fb"></span></a></li>
+            </ul>
           </div>
           <div class="footer__shedule"><p>Sat - Sun<br>
             10:00 am - 06:00 pm</p>
@@ -352,7 +528,7 @@
           <p class="year">2023</p>
         </div>
         <div class="footer_center">
-          <a class="footer_link-rs-school" href="https://rs.school/js/">The Rolling Scopes School</a>
+          <a class="footer_link-rs-school" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
         </div>
         <div class="footer_right">
           <a class="footer_link-github" href="https://github.com/ulja4a">Ulyana Tkachenko</a>
