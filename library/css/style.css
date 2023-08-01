@@ -290,6 +290,7 @@ ul {
 
 .radio_input:checked+.custom_radio:before {
   transform: translate(-50%, -50%) scale(1);
+  cursor: pointer;
 }
 
 .radio_input:checked~.radio_label {
@@ -535,6 +536,7 @@ ul {
   font-weight: 700;
   line-height: 40px;
   letter-spacing: 2px;
+  text-transform: capitalize;
   color: #000;
 }
 
