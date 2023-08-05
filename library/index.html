@@ -73,24 +73,32 @@
         </p>
         <div class="seasones">
           <div class="seasone_radio">
-            <input class="radio_input" type="radio" id="radio1" name="season" value="winter" checked>
-            <span class="custom_radio"></span>
-            <label for="radio1" class="radio_label">Winter</label>
+            <label for="radio1" class="radio_label">
+              <input class="radio_input" type="radio" id="radio1" name="season" value="winter" checked>
+              <span class="custom_radio"></span>
+              <span class="label_text">Winter</span>
+            </label>
           </div>
           <div class="seasone_radio">
-            <input class="radio_input" type="radio" id="radio2" name="season" value="spring">
-            <span class="custom_radio"></span>
-            <label for="radio2" class="radio_label">Spring</label>
+            <label for="radio2" class="radio_label">
+              <input class="radio_input" type="radio" id="radio2" name="season" value="spring">
+              <span class="custom_radio"></span>
+              <span class="label_text">Spring</span>
+            </label>
           </div>
           <div class="seasone_radio">
-            <input class="radio_input" type="radio" id="radio3" name="season" value="summer">
-            <span class="custom_radio"></span>
-            <label for="radio3" class="radio_label">Summer</label>
+            <label for="radio3" class="radio_label">
+              <input class="radio_input" type="radio" id="radio3" name="season" value="summer">
+              <span class="custom_radio"></span>
+              <span class="label_text">Summer</span>
+            </label>
           </div>
           <div class="seasone_radio">
-            <input class="radio_input" type="radio" id="radio4" name="season" value="autumn">
-            <span class="custom_radio"></span>
-            <label for="radio4" class="radio_label">Autumn</label>
+            <label for="radio4" class="radio_label">
+              <input class="radio_input" type="radio" id="radio4" name="season" value="autumn">
+              <span class="custom_radio"></span>
+              <span class="label_text">Autumn</span>
+            </label>
           </div>
         </div>
         <div class="favorites-items">
@@ -476,9 +484,9 @@
                   <p class="card-bg_title">Brooklyn Public Library</p>
                   <div class="card-bg_input">
                     <input class="card-bg_input-text" type="text" id="input-text" 
-                        name="firstname" placeholder="Reader's name">
+                        name="firstname" placeholder="Reader's name" pattern="^[a-zA-Z-]+$">
                     <input class="card-bg_input-number" type="text" id="input-description" 
-                        name="cardnumber" placeholder="Card number">
+                        name="cardnumber" placeholder="Card number" pattern="^[0-9]+$">
                   </div>
                 </div>
               </form>
