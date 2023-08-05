@@ -237,12 +237,14 @@ ul {
 .seasones {
   display: flex;
   align-items: center;
-  padding: 40px 0;
+  padding: 35px 0;
+  margin-left: -5px;
 }
 
 .seasone_radio {
   display: flex;
-  padding-right: 90px;
+  padding: 5px 0 5px 5px;
+  padding-right: 80px;
   align-items: center;
 }
 
@@ -262,6 +264,13 @@ ul {
   position: relative;
 }
 
+.label_text {
+  line-height: 24px;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+}
+
 .custom_radio {
   display: inline-block;
   position: relative;
@@ -272,6 +281,8 @@ ul {
   border-radius: 50%;
   vertical-align: text-top;
   margin-right: 20px;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .custom_radio::before {
@@ -293,7 +304,7 @@ ul {
   cursor: pointer;
 }
 
-.radio_input:checked~.radio_label {
+.radio_input:checked~.label_text {
   font-weight: 700;
 }
 
