@@ -187,12 +187,16 @@ ul {
   background-color: #0C0C0E;
 }
 
-.about__slider {
+.about__slider_3-columns {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
+}
+
+.about__slider_2-columns,
+.about__slider_1-columns {
+  display: none;
 }
 
 .slider__pagination {
@@ -855,4 +859,41 @@ ul {
   align-items: center;
   position: absolute;
   right: 0;
+}
+
+@media (max-width: 1400px) {
+  .about__slider_3-columns,
+  .about__slider_1-columns {
+    display: none;
+  }
+
+  .about__slider_2-columns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .favorites-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-book {
+    margin-left: 0;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .about__slider_3-columns,
+  .about__slider_2-columns {
+    display: none;
+  }
+
+  .about__slider_1-columns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
