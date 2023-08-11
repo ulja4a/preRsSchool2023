@@ -914,29 +914,28 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
     gap: 25px;
   }
 
   .favorites-items {
     flex-direction: column;
     align-items: center;
+    row-gap: 40px;
   }
 
   .card-book {
     margin-left: 0;
+    height: 555px;
   }
 
 }
 
 @media (max-width: 1024px) {
-  /*.wrapper {
-    max-width: 984px;
-    padding: 0 20px;
-  }*/
   
   .header__burger {
     display: block;
-    margin-left: 65px;
+    margin-left: 40px;
   }
 
   .about__slider_3-columns,
@@ -948,6 +947,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
   }
 
   .element__pagination_unactiv-more {
@@ -1017,4 +1017,56 @@ ul {
     right: 105px;
   }
 
+  .label_text {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .contacts-info {
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .shop__menu {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .menu_drinks {
+    width: 438px;
+  }
+
+  .digital_cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .get_card {
+    align-items: center;
+  }
+
+  .get_card-text {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .seasone_radio:last-child {
+    padding-right: 0;
+  }
+
+  .favorites-items {
+    align-items: start;
+    margin-left: 69px;
+  }
+
+  .name_item {
+    letter-spacing: 1.8px;
+  }
 }
