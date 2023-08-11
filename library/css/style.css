@@ -628,6 +628,10 @@ ul {
   padding-top: 20px;
 }
 
+iframe {
+  width: 696px;
+}
+
 .digital_cards {
   display: flex;
   justify-content: space-between;
@@ -1020,7 +1024,6 @@ ul {
   .label_text {
     font-family: Inter;
     font-size: 20px;
-    font-weight: 700;
     line-height: 24px;
   }
 
@@ -1069,6 +1072,9 @@ ul {
     align-items: start;
     margin-left: 69px;
   }
+  iframe {
+    width: 696px;
+  }
 
   .name_item {
     letter-spacing: 1.8px;
@@ -1079,6 +1085,24 @@ ul {
   }
 
   .contacts_map {
+    width: 100%;
     margin: auto;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .seasone_radio {
+    padding-right: 40px;
+  }
+
+  .favorites-items {
+    align-items: center;
+    margin-left: 0;
+  }
+
+  iframe {
+    width: 600px;
   }
 }
