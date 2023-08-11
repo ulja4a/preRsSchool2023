@@ -232,6 +232,11 @@ ul {
   display: none;
 }
 
+.carret_left,
+.carret_right {
+  display: none;
+}
+
 .slider__pagination {
   display: flex;
   align-items: center;
@@ -949,9 +954,16 @@ iframe {
 
   .about__slider_1-columns {
     display: flex;
+    gap: 58px;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+  }
+
+  .carret_left,
+  .carret_right {
+    display: block;
+    padding-top: 40px;
   }
 
   .element__pagination_unactiv-more {
@@ -1089,7 +1101,6 @@ iframe {
     margin: auto;
     text-align: center;
   }
-
 }
 
 @media (max-width: 767px) {
