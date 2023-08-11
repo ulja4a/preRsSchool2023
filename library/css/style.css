@@ -1044,10 +1044,14 @@ ul {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 20px;
   }
 
   .get_card {
     align-items: center;
+    padding-top: 0;
+    width: 600px;
+    gap: 40px;
   }
 
   .get_card-text {
@@ -1068,5 +1072,13 @@ ul {
 
   .name_item {
     letter-spacing: 1.8px;
+  }
+
+  .contacts-info {
+    align-items: start;
+  }
+
+  .contacts_map {
+    margin: auto;
   }
 }
