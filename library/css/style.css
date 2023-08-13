@@ -235,6 +235,7 @@ ul {
 .carret_left,
 .carret_right {
   display: none;
+  cursor: pointer;
 }
 
 .slider__pagination {
@@ -978,13 +979,19 @@ iframe {
     top: 0;
     right: 0;
     z-index: 10;
+    cursor: pointer;
     padding: 100px 107px;
     transform: translateX(100%);
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .nav_active {
+    transform: translateX(0);
   }
 
   .nav-list {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 30px;
   }
 
@@ -1115,5 +1122,11 @@ iframe {
 
   iframe {
     width: 600px;
+  }
+
+  .footer_link-github,
+  .footer_link-rs-school,
+  .year {
+    font-size: 14px;
   }
 }
