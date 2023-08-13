@@ -22,5 +22,5 @@
     if (!menu.contains(event.target) && event.target !== burger && !menu.contains(event.target) && !menuClose.contains(event.target) && event.target !== menuIcon) {
       menu.classList.remove('nav_active');
     }
-  }
+  }, { passive: true };
 } ());
