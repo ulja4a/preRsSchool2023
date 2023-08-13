@@ -1006,10 +1006,10 @@ iframe {
   }
 
   .nav__close {
-    width: 32px;
-    height: 32px;
+    width: 45px;
+    height: 45px;
     position: absolute;
-    top: 29px;
+    top: 23px;
     right: 20px;
     z-index: 11;
   }
@@ -1017,10 +1017,11 @@ iframe {
   .nav__line_close {
     display: block;
     height: 2px;
-    width: 100%;
+    width: 32px;
     background: #FFFFFF;
     position: absolute;
     top: 50%;
+    transform-origin: center;
   }
 
   .nav__line_close:first-child {
