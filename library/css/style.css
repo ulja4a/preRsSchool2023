@@ -126,6 +126,39 @@ ul {
   display: flex;
 }
 
+.header__burger {
+  display: none;
+  width: 45px;
+  height: 20px;
+  position: relative;
+}
+
+.burger__line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  position: absolute;
+  left: 0;
+}
+
+.burger__line_first {
+  top: 0;
+}
+
+.burger__line_second {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger__line_third {
+  bottom: 0;
+}
+
+.icon__burger {
+  display: none;
+}
+
 .welcome {
   height: 600px;
   background: url(../assets/img/welcome.png) no-repeat center;
@@ -187,12 +220,21 @@ ul {
   background-color: #0C0C0E;
 }
 
-.about__slider {
+.about__slider_3-columns {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
+}
+
+.about__slider_2-columns,
+.about__slider_1-columns {
+  display: none;
+}
+
+.carret_left,
+.carret_right {
+  display: none;
 }
 
 .slider__pagination {
@@ -213,6 +255,10 @@ ul {
 
 .element__pagination {
   cursor: pointer;
+}
+
+.element__pagination_unactiv-more {
+  display: none
 }
 
 .favorites__title {
@@ -587,6 +633,10 @@ ul {
   padding-top: 20px;
 }
 
+iframe {
+  width: 696px;
+}
+
 .digital_cards {
   display: flex;
   justify-content: space-between;
@@ -855,4 +905,215 @@ ul {
   align-items: center;
   position: absolute;
   right: 0;
+}
+
+@media (max-width: 1400px) {
+
+  .wrapper {
+    max-width: 1380px;
+    padding: 0 20px;
+  }
+
+  .about__slider_3-columns,
+  .about__slider_1-columns {
+    display: none;
+  }
+
+  .about__slider_2-columns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 25px;
+  }
+
+  .favorites-items {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+  }
+
+  .card-book {
+    margin-left: 0;
+    height: 555px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  
+  .header__burger {
+    display: block;
+    margin-left: 40px;
+  }
+
+  .about__slider_3-columns,
+  .about__slider_2-columns {
+    display: none;
+  }
+
+  .about__slider_1-columns {
+    display: flex;
+    gap: 58px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .carret_left,
+  .carret_right {
+    display: block;
+    padding-top: 40px;
+  }
+
+  .element__pagination_unactiv-more {
+    display: inline;
+  }
+
+  .nav {
+    width: 332px;
+    height: 570px;
+    background: #0C0C0E;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 100px 107px;
+    transform: translateX(100%);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .nav-item:last-child {
+    padding: 0;
+  }
+
+  .nav__close {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 29px;
+    right: 20px;
+    z-index: 11;
+  }
+
+  .nav__line_close {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+  }
+
+  .nav__line_close:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .nav__line_close:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .icon__burger {
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 31px;
+    right: 105px;
+  }
+
+  .label_text {
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .contacts-info {
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .shop__menu {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .menu_drinks {
+    width: 438px;
+  }
+
+  .digital_cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .get_card {
+    align-items: center;
+    padding-top: 0;
+    width: 600px;
+    gap: 40px;
+  }
+
+  .get_card-text {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .seasone_radio:last-child {
+    padding-right: 0;
+  }
+
+  .favorites-items {
+    align-items: start;
+    margin-left: 69px;
+  }
+  iframe {
+    width: 696px;
+  }
+
+  .name_item {
+    letter-spacing: 1.8px;
+  }
+
+  .contacts-info {
+    align-items: start;
+  }
+
+  .contacts_map {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .seasone_radio {
+    padding-right: 40px;
+  }
+
+  .favorites-items {
+    align-items: center;
+    margin-left: 0;
+  }
+
+  iframe {
+    width: 600px;
+  }
 }

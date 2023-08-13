@@ -22,8 +22,18 @@
             <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
             <li class="nav-item"><a href="#cards" class="nav-link">Library Card</a></li>
           </ul>
+          <img class="icon__burger" src="assets/img/subtract.svg" alt="icon_profile">
+          <div class="nav__close">
+            <span class="nav__line_close"></span>
+            <span class="nav__line_close"></span>
+          </div>
         </nav>
         <img class="icon" src="assets/img/subtract.svg" alt="icon_profile">
+        <div class="header__burger">
+          <span class="burger__line burger__line_first"></span>
+          <span class="burger__line burger__line_second"></span>
+          <span class="burger__line burger__line_third"></span>
+        </div>
       </div>
     </div>
   </header>
@@ -46,10 +56,19 @@
           <p class="about__text">
           The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
           </p>
-          <div class="about__slider">
+          <div class="about__slider_3-columns">
             <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
             <img src="./assets/img/image2.png" alt="Woman in the library" class="about__img">
             <img src="./assets/img/image3.png" alt="Woman in the library" class="about__img">
+          </div>
+          <div class="about__slider_2-columns">
+            <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
+            <img src="./assets/img/image2.png" alt="Woman in the library" class="about__img">
+          </div>
+          <div class="about__slider_1-columns">
+            <img src="./assets/img/carret_left.svg" alt="carret_left" class="carret_left">
+            <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
+            <img src="./assets/img/carret_right.svg" alt="carret_right" class="carret_right">
           </div>
           <div class="slider__pagination">
             <span class="element__pagination">
@@ -60,6 +79,12 @@
             </span>
             <span class="element__pagination">
               <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv">
+            </span>
+            <span class="element__pagination">
+              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv-more">
+            </span>
+            <span class="element__pagination">
+              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv-more">
             </span>
           </div>
         </div>
@@ -464,7 +489,7 @@
           </div>
           <div class="contacts_map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1069.5021789554285!2d-73.9921311438605!3d40.69580002915306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2zMjg2IENhZG1hbiBQbGF6YSBXLCBCcm9va2x5biwgTlkgMTEyMDEsINCh0KjQkA!5e0!3m2!1sru!2str!4v1689102186763!5m2!1sru!2str" 
-                    width="696" height="414" style="border:0;" 
+                    width="600px" height="414px" style="border:0;" 
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
@@ -544,6 +569,7 @@
       </div>
     </div>
   </footer>
-  <script src="index.js"></script>
+  <script src="js/library.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
