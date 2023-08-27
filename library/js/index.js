@@ -95,13 +95,17 @@ const carusel = document.querySelector('.about__slider-track');
 const firstImgWidth = carusel.querySelector('.about__img').offsetWidth;
 const caruselChildren = [...carusel.children];
 const pagination = document.querySelectorAll('.element__pagination');
+const carretLeft = document.querySelector('.carret_left');
+const carretRight = document.querySelector('.carret_right');
 
 let slidesToShow = 3;
 
+updateCarretVisibility();
 console.log(caruselChildren)
 console.log(firstImgWidth)
 
 updatePagination();
+
 
 function handleResize() {
   const sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
@@ -109,6 +113,7 @@ function handleResize() {
   if (window.innerWidth - 40 < sliderWrapperWidth) {
     slidesToShow = Math.max(slidesToShow - 1, 1);
     updatePagination(); // Обновление точек пагинации при изменении slidesToShow
+    updateCarretVisibility();
   }
 
   sliderWrapper.style.width = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25) + 'px';
@@ -130,34 +135,33 @@ function updatePagination() {
   }
 }
 
+
 window.addEventListener('resize', handleResize);
 
 handleResize();
 
-/*const mediaQuery = window.matchMedia('(min-width: 1025px)');
-function deviceSizeCheck() {
-  
-  if(mediaQuery.matches) {
-    console.log('media query = ', mediaQuery.matches);
-    let slidesToShow = 3;
-    let sliderWrapperWidth = (firstImgWidth * slidesToShow)+((slidesToShow-1)*25);
-    if ((window.innerWidth -40) < sliderWrapperWidth) {
-      slidesToShow = Math.max(slidesToShow - 1, 1);
-      sliderWrapper.style.width = (firstImgWidth * slidesToShow)+((slidesToShow-1)*25) + 'px';
-      console.log(sliderWrapper.style.width)
-    }
-    sliderWrapper.style.width = (firstImgWidth * slidesToShow)+((slidesToShow-1)*25) + 'px';
-      console.log(sliderWrapper.style.width)
-    //slidesTrack.style.transform = `translateX(-${position * slidesContainerWidth}px)`;
+function updateCarretVisibility() {
+  if (slidesToShow === 1) {
+    carretLeft.style.display = 'block';
+    carretRight.style.display = 'block';
   } else {
-    console.log('mobil')
-    let slidesToShow = 1;
-    sliderWrapper.style.width = (firstImgWidth * slidesToShow)+((slidesToShow-1)*25) + 'px';
-    console.log(sliderWrapper.style.width)
+    carretLeft.style.display = 'none';
+    carretRight.style.display = 'none';
   }
 }
 
-mediaQuery.addEventListener('change', deviceSizeCheck); //обработчик события change
-deviceSizeCheck(mediaQuery); //проверка размера устройства*/
+carretLeft.addEventListener('click', () => {
+  // Переключите слайды влево
+  // Ваша логика для переключения слайдов
+  // Например, уменьшите индекс текущего слайда и обновите отображение
+  updateCarretVisibility();
+});
+
+carretRight.addEventListener('click', () => {
+  // Переключите слайды вправо
+  // Ваша логика для переключения слайдов
+  // Например, увеличьте индекс текущего слайда и обновите отображение
+  updateCarretVisibility();
+});
 
 
