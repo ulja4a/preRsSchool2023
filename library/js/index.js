@@ -93,23 +93,41 @@ updateSlider();*/
 let sliderWrapper = document.querySelector('.about__slider');
 const carusel = document.querySelector('.about__slider-track');
 const firstImgWidth = carusel.querySelector('.about__img').offsetWidth;
-const current = sliderWrapper.querySelectorAll('img');
 const caruselChildren = [...carusel.children];
+const pagination = document.querySelectorAll('.element__pagination');
 
 let slidesToShow = 3;
 
 console.log(caruselChildren)
 console.log(firstImgWidth)
 
+updatePagination();
+
 function handleResize() {
   const sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
 
   if (window.innerWidth - 40 < sliderWrapperWidth) {
     slidesToShow = Math.max(slidesToShow - 1, 1);
+    updatePagination(); // Обновление точек пагинации при изменении slidesToShow
   }
 
   sliderWrapper.style.width = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25) + 'px';
   //updateCarouselPosition();
+}
+
+function updatePagination() {
+  // Сброс элементов пагинации в исходное состояние
+  pagination.forEach(paginationElement => {
+    paginationElement.style.display = 'none';
+  });
+
+  // Подсчет количества элементов пагинации в зависимости от количества slidesToShow
+  const numPaginationElements = slidesToShow === 1 ? 5 : (slidesToShow === 2 ? 4 : 3);
+
+  // Отображение необходимого количества элементов пагинации
+  for (let i = 0; i < numPaginationElements; i++) {
+    pagination[i].style.display = 'block';
+  }
 }
 
 window.addEventListener('resize', handleResize);
