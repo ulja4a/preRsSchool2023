@@ -1,4 +1,4 @@
-(function () {
+
   const burger = document.querySelector('.header__burger');
   const menu = document.querySelector('.nav');
   const menuClose = document.querySelector('.nav__close');
@@ -7,6 +7,7 @@
 
   
 
+  (function () {
   burger.addEventListener('click', (e) => {
     menu.classList.add('nav_active');
   });
