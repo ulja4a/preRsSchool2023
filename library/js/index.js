@@ -129,6 +129,7 @@ carretLeft.addEventListener('click', () => {
   }
   rollSlider();
   updateCarretVisibility();
+  paginationIndex(position);
 });
 
 carretRight.addEventListener('click', () => {
@@ -139,10 +140,18 @@ carretRight.addEventListener('click', () => {
   }
   rollSlider();
   updateCarretVisibility();
+  paginationIndex(position);
 });
 
 function rollSlider() {
   carusel.style.transform = `translateX(-${position * (firstImgWidth * slidesToShow + 25)}px)`;
 }
+
+function paginationIndex(index) {
+  pagination.forEach(item => item.classList.remove('active'));
+  pagination[index].classList.add('active');
+}
+
+
 
 });
