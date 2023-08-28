@@ -13,40 +13,6 @@ const activeIndex = Array.from(pagination).findIndex(item => item.classList.cont
 const prevCarret = document.querySelector('.carret_left');
 const nextCarret = document.querySelector('.carret_right');
 
-
-
-//Проверяем размер устройства для обработки слайдера
-
-/*const mediaQuery = window.matchMedia('(min-width: 1025px)');
-function deviceSizeCheck() {
-  
-  if(mediaQuery.matches) {
-    console.log('media query = ', mediaQuery.matches);
-    let slidesToShow = 3;
-    const slideItemWidth = (slidesContainer.clientWidth - ((slidesToShow-1)*25)) / slidesToShow;
-    console.log(activeIndex);
-    console.log(paginationCount);
-    console.log(slideCount);
-    console.log(slideItemWidth);
-    //let slidesContainerWidth = (slidesToShow * slideItemWidth)+((slidesToShow-1)*25);
-    //console.log(slidesContainerWidth);
-    //slidesTrack.style.transform = `translateX(-${position * slidesContainerWidth}px)`;
-  } else {
-    console.log('mobil')
-    let slidesToShow = 1;
-    let slideIndex = 0;
-    
-   
-  }
-}
-
-mediaQuery.addEventListener('resize', deviceSizeCheck); //обработчик события change
-deviceSizeCheck(mediaQuery); //проверка размера устройства
-
-
-
-
-
 //const slides = Array.from(sliderColumns3.querySelectorAll('img'));*/
 
 
@@ -89,6 +55,8 @@ function updateSlider() {
 
 // Инициализация слайдера
 updateSlider();*/
+document.addEventListener('DOMContentLoaded', () => {
+
 
 let sliderWrapper = document.querySelector('.about__slider');
 const carusel = document.querySelector('.about__slider-track');
@@ -99,11 +67,12 @@ const carretLeft = document.querySelector('.carret_left');
 const carretRight = document.querySelector('.carret_right');
 
 let slidesToShow = 3;
+let position = 0;
 
 updateCarretVisibility();
 console.log(caruselChildren)
 console.log(firstImgWidth)
-
+rollSlider();
 updatePagination();
 
 
@@ -114,9 +83,11 @@ function handleResize() {
     slidesToShow = Math.max(slidesToShow - 1, 1);
     updatePagination(); // Обновление точек пагинации при изменении slidesToShow
     updateCarretVisibility();
+    
   }
 
   sliderWrapper.style.width = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25) + 'px';
+  rollSlider();
   //updateCarouselPosition();
 }
 
@@ -151,17 +122,27 @@ function updateCarretVisibility() {
 }
 
 carretLeft.addEventListener('click', () => {
-  // Переключите слайды влево
-  // Ваша логика для переключения слайдов
-  // Например, уменьшите индекс текущего слайда и обновите отображение
+  position --;
+  if (position < 0) {
+    position = 0;
+    return false;
+  }
+  rollSlider();
   updateCarretVisibility();
 });
 
 carretRight.addEventListener('click', () => {
-  // Переключите слайды вправо
-  // Ваша логика для переключения слайдов
-  // Например, увеличьте индекс текущего слайда и обновите отображение
+  position ++;
+  if (position >= caruselChildren.length) {
+    position = caruselChildren.length;
+    return false;
+  }
+  rollSlider();
   updateCarretVisibility();
 });
 
+function rollSlider() {
+  carusel.style.transform = `translateX(-${position * (firstImgWidth * slidesToShow + 25)}px)`;
+}
 
+});
