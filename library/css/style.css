@@ -403,8 +403,10 @@ ul {
   justify-content: space-between;
   border: 1px solid #000;
   width: 550px;
+  height: 555px;
   margin-left:  260px;
   position: relative;
+  transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
 }
 
 .unvisible {
@@ -413,6 +415,10 @@ ul {
 
 .card-book:nth-child(odd) {
   margin-left: 0;
+}
+
+.fadeOut {
+  opacity: 0;
 }
 
 .book__staff {
