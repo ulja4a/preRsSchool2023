@@ -43,26 +43,46 @@ let position = 0;
 
 updateCarretVisibility();
 rollSlider();
-updatePagination();
+//updatePagination();
 
-window.addEventListener('resize', handleResize, { passive: true });
+// Перерассчитываем количество отображаемых слайдов при загрузке страницы
+window.addEventListener('load', ()=> {
+  let windowWidth = window.innerWidth;
+  console.log(windowWidth);
+  handleResize(windowWidth); // Вызываем функцию handleResize() при загрузке страницы
+  updatePagination(); 
+  updateCarretVisibility();
+});
+// Вызываем функцию handleResize() при изменении размера окна
+window.addEventListener('resize', ()=> {
+  let windowWidth = window.innerWidth;
+  console.log(windowWidth);
+  handleResize(windowWidth);
+  updatePagination(); 
+  updateCarretVisibility();
+});
 
-function handleResize() {
+function handleResize(windowWidth) {
+  let x = (windowWidth-40)/450;
+  console.log(x);
+  let y = ((x-1)*25);
+  console.log(y);
+  slidesToShow = Math.ceil(((windowWidth-40)-y)/450);
+  console.log(slidesToShow);
   let sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
-
-  if (window.innerWidth - 40 < sliderWrapperWidth) {
+  console.log(windowWidth-40);
+  console.log(sliderWrapperWidth);
+  if (sliderWrapperWidth > (windowWidth - 40)) {
     slidesToShow = Math.max(slidesToShow - 1, 1);
+    console.log(slidesToShow);
     sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
+    updatePagination(); // Обновление точек пагинации при изменении slidesToShow
+    updateCarretVisibility();
   }
-
   sliderWrapper.style.width = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25) + 'px';
   position = Math.min(position, caruselChildren.length - slidesToShow);
-  updatePagination(); // Обновление точек пагинации при изменении slidesToShow
-  updateCarretVisibility();
   rollSlider();
 }
-
-handleResize();
 
 function updatePagination() {
   // Сброс элементов пагинации в исходное состояние
@@ -79,13 +99,31 @@ function updatePagination() {
   }
 }
 
-function updateCarretVisibility() {
+/*function updateCarretVisibility() {
   if (slidesToShow === 1) {
     carretLeft.style.display = 'block';
     carretRight.style.display = 'block';
   } else {
     carretLeft.style.display = 'none';
     carretRight.style.display = 'none';
+  }
+}*/
+function updateCarretVisibility() {
+  console.log(position);
+  if (slidesToShow === 1 && position!==0 && position!==(caruselChildren.length - slidesToShow)) {
+    carretLeft.style.display = 'block';
+    carretRight.style.display = 'block';
+  } else {
+    if (position === 0) {
+      carretLeft.style.display = 'none';
+      carretRight.style.display = 'block';
+    } else if (position === caruselChildren.length - slidesToShow) {
+      carretLeft.style.display = 'block';
+      carretRight.style.display = 'none';
+    } else {
+      carretLeft.style.display = 'block';
+      carretRight.style.display = 'block';
+    }
   }
 }
 
@@ -94,7 +132,7 @@ carretLeft.addEventListener('click', () => {
   position --;
   if (position < 0) {
     position = 0;
-    return false;
+    //return false;
   }
   rollSlider();
   updateCarretVisibility();
@@ -103,9 +141,9 @@ carretLeft.addEventListener('click', () => {
 
 carretRight.addEventListener('click', () => {
   position ++;
-  if (position >= caruselChildren.length) {
-    position = caruselChildren.length;
-    carretRight.style.display = 'none';
+  if (position > caruselChildren.length - slidesToShow) {
+    position = caruselChildren.length - slidesToShow;
+    //carretRight.style.display = 'none';
     return false;
   }
   rollSlider();
@@ -124,8 +162,10 @@ function paginationIndex(index) {
 
 pagination.forEach((dot, index) => {
   dot.addEventListener('click', () => {
-    position = index;
+    position = index * slidesToShow;
+    //position = index;
     rollSlider();
+    updateCarretVisibility();
     paginationIndex(position);
   })
 });
