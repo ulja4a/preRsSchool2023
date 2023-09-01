@@ -224,4 +224,7 @@ function autoSwitchSeason() {
 let timer = setInterval(autoSwitchSeason, 5000); // Запускаем автоматическое переключение через таймер
 
 
+// Меню авторизации
+const menuProfile = document.querySelector('.icon');
+
 });

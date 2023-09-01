@@ -126,6 +126,46 @@ ul {
   display: flex;
 }
 
+.menu_register {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 80px;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  transition: opacity 0.5s ease-in-out;;
+}
+
+.title_register {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #000;
+  margin-top: 5px;
+}
+
+.text_register {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.line_register {
+  width: 40px;
+  height: 1px;
+  background-color: #BB945F;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
 .header__burger {
   display: none;
   width: 45px;
@@ -321,6 +361,7 @@ ul {
   align-items: center;
   padding: 35px 0;
   margin-left: -5px;
+  position: sticky;
 }
 
 .seasone_radio {
@@ -990,37 +1031,9 @@ iframe {
     margin-left: 40px;
   }
 
-  /*.about__slider_3-columns,
-  .about__slider_2-columns {
-    display: none;
-  }*/
-
-  /*.about__slider_1-columns {
-    display: flex;
-    gap: 58px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }*/
-
-  /*.about__slider-track {
-    width: 450px;
-    display: flex;
-    gap: 58px;
-    align-items: center;
-    justify-content: start;
-    margin-top: 20px;
-  }*/
-
-  
-
-  /*.element__pagination_unactiv-more {
-    display: inline;
+  .menu_register {
+    right: 105px;
   }
-
-  .element__pagination.hidden {
-    display: inline;
-  }*/
 
   .nav {
     width: 332px;
