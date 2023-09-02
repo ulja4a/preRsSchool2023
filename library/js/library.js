@@ -5,13 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('.nav');
   const menuClose = document.querySelector('.nav__close');
   const menuItem = document.querySelectorAll('.nav-link');
-  const menuIcon = document.querySelector('.icon__burger');
+  const menuIcon = document.querySelector('.icon');
+  const iconProfile = document.querySelector('.icon');
+  const menuProfile = document.querySelector('.menu_register');
+  const register = document.querySelector('.regist');
+  const popupRegister = document.querySelector('.popup_register');
+  const popupRegisterMenu = document.querySelector('.popup_register-content')
+  const popupClose = document.querySelector('.popup-close');
+  const signUpCard = document.querySelector('.signup-card');
 
   (function () {
   burger.addEventListener('click', (e) => {
+    console.log(1);
     menu.classList.add('nav_active');
   });
   menuClose.addEventListener('click', (e) => {
+    menu.classList.remove('nav_active');
+  });
+  iconProfile.addEventListener('click', (e) => {
     menu.classList.remove('nav_active');
   });
   menuItem.forEach(item => {
@@ -48,7 +59,6 @@ rollSlider();
 // Перерассчитываем количество отображаемых слайдов при загрузке страницы
 window.addEventListener('load', ()=> {
   let windowWidth = window.innerWidth;
-  console.log(windowWidth);
   handleResize(windowWidth); // Вызываем функцию handleResize() при загрузке страницы
   updatePagination(); 
   updateCarretVisibility();
@@ -56,7 +66,6 @@ window.addEventListener('load', ()=> {
 // Вызываем функцию handleResize() при изменении размера окна
 window.addEventListener('resize', ()=> {
   let windowWidth = window.innerWidth;
-  console.log(windowWidth);
   handleResize(windowWidth);
   updatePagination(); 
   updateCarretVisibility();
@@ -64,17 +73,11 @@ window.addEventListener('resize', ()=> {
 
 function handleResize(windowWidth) {
   let x = (windowWidth-40)/450;
-  console.log(x);
   let y = ((x-1)*25);
-  console.log(y);
   slidesToShow = Math.ceil(((windowWidth-40)-y)/450);
-  console.log(slidesToShow);
   let sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
-  console.log(windowWidth-40);
-  console.log(sliderWrapperWidth);
   if (sliderWrapperWidth > (windowWidth - 40)) {
     slidesToShow = Math.max(slidesToShow - 1, 1);
-    console.log(slidesToShow);
     sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
     updatePagination(); // Обновление точек пагинации при изменении slidesToShow
     updateCarretVisibility();
@@ -99,30 +102,20 @@ function updatePagination() {
   }
 }
 
-/*function updateCarretVisibility() {
-  if (slidesToShow === 1) {
-    carretLeft.style.display = 'block';
-    carretRight.style.display = 'block';
-  } else {
-    carretLeft.style.display = 'none';
-    carretRight.style.display = 'none';
-  }
-}*/
 function updateCarretVisibility() {
-  console.log(position);
   if (slidesToShow === 1 && position!==0 && position!==(caruselChildren.length - slidesToShow)) {
     carretLeft.style.display = 'block';
     carretRight.style.display = 'block';
   } else {
-    if (position === 0) {
+    if (slidesToShow === 1 && position === 0) {
       carretLeft.style.display = 'none';
       carretRight.style.display = 'block';
-    } else if (position === caruselChildren.length - slidesToShow) {
+    } else if (slidesToShow === 1 && position === caruselChildren.length - slidesToShow) {
       carretLeft.style.display = 'block';
       carretRight.style.display = 'none';
     } else {
-      carretLeft.style.display = 'block';
-      carretRight.style.display = 'block';
+      carretLeft.style.display = 'none';
+      carretRight.style.display = 'none';
     }
   }
 }
@@ -132,7 +125,6 @@ carretLeft.addEventListener('click', () => {
   position --;
   if (position < 0) {
     position = 0;
-    //return false;
   }
   rollSlider();
   updateCarretVisibility();
@@ -143,7 +135,6 @@ carretRight.addEventListener('click', () => {
   position ++;
   if (position > caruselChildren.length - slidesToShow) {
     position = caruselChildren.length - slidesToShow;
-    //carretRight.style.display = 'none';
     return false;
   }
   rollSlider();
@@ -163,7 +154,6 @@ function paginationIndex(index) {
 pagination.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     position = index * slidesToShow;
-    //position = index;
     rollSlider();
     updateCarretVisibility();
     paginationIndex(position);
@@ -174,8 +164,6 @@ pagination.forEach((dot, index) => {
 const cardBook = document.querySelectorAll('.card-book');
 const seasonsButton = document.querySelectorAll('.radio_label');
 const seasonsInput = document.querySelectorAll('.radio_input');
-
-console.log(seasonsButton);
 
 let currentSeasonIndex = 0;
 
@@ -225,6 +213,45 @@ let timer = setInterval(autoSwitchSeason, 5000); // Запускаем авто�
 
 
 // Меню авторизации
-const menuProfile = document.querySelector('.icon');
+iconProfile.addEventListener('click', ()=> {
+  menuProfile.classList.toggle('menu-visable');
+  if (!menu.classList.contains('nav_active')) {
+    menu.classList.remove('nav_active');
+  }
+})
+
+document.addEventListener('click', (event) => {
+  if (!menuProfile.classList.contains('menu-visable') && !iconProfile.contains(event.target) && !register.contains(event.target)) {
+    menuProfile.classList.add('menu-visable');
+  }
+});
+
+//Меню регистрации
+register.addEventListener('click', ()=> {
+  popupRegister.classList.remove('hidden');
+  if (!menuProfile.classList.contains('menu-visable')) {
+    menuProfile.classList.add('menu-visable');
+  }
+  
+});
+
+popupClose.addEventListener('click', (e) => {
+  popupRegister.classList.add('hidden');
+});
+
+popupRegister.addEventListener('click', (e) => {
+  if (e.target === popupRegister) {
+    popupRegister.classList.add('hidden');
+  }
+});
+
+signUpCard.addEventListener('click', ()=> {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'})
+  popupRegister.classList.remove('hidden');
+});
+
+
 
 });

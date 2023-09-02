@@ -88,6 +88,10 @@ header {
   color: #FFFFFF;
 }
 
+.icon {
+  z-index: 20;
+}
+
 .nav-icon {
   display: flex;
   align-items: center;
@@ -136,7 +140,10 @@ ul {
   flex-direction: column;
   align-items: center;
   background: #FFFFFF;
-  transition: opacity 0.5s ease-in-out;;
+  transition: opacity 0.5s ease-in-out;
+}
+.menu_register.menu-visable {
+  display: none;
 }
 
 .title_register {
@@ -164,6 +171,113 @@ ul {
   background-color: #BB945F;
   margin-top: 5px;
   margin-bottom: 15px;
+}
+
+.popup_register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(20, 20, 20, 0.8);
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.popup_register-content {
+  width: 250px;
+  height: 382px;
+  background: #FFFFFF;
+  padding: 20px 25px;
+  position: relative;
+}
+
+.popup_register-title {
+  font-family: Forum;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #000;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.first-name,
+.last-name,
+.email,
+.password {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  padding-bottom: 10px;
+  color: #000;
+}
+
+.input-popup {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #BB945F;
+  margin-bottom: 10px;
+}
+
+.input-popup:last-of-type {
+  margin-bottom: 20px;
+}
+
+.popup-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.popup_register-coment {
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #000;
+}
+
+.popup-close {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+
+.popup-close_line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #0C0C0E;
+  position: absolute;
+}
+
+.popup-close_line.one {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.popup-close_line.two {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.login-reg {
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: #0C0C0E;
+  text-decoration: underline;
 }
 
 .header__burger {

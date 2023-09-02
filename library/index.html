@@ -22,7 +22,7 @@
             <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
             <li class="nav-item"><a href="#cards" class="nav-link">Library Card</a></li>
           </ul>
-          <img class="icon__burger" src="assets/img/subtract.svg" alt="icon_profile">
+          <!--<img class="icon__burger" src="assets/img/subtract.svg" alt="icon_profile">-->
           <div class="nav__close">
             <span class="nav__line_close"></span>
             <span class="nav__line_close"></span>
@@ -30,7 +30,7 @@
         </nav>
 
         <img class="icon" src="assets/img/subtract.svg" alt="icon_profile">
-        <div class="menu_register">
+        <div class="menu_register menu-visable">
           <p class="title_register">Profile</p>
           <hr class="line_register">
           <p class="text_register login">Log In</p>
@@ -45,6 +45,39 @@
     </div>
   </header>
   <main class="main">
+    <div class="popup_register hidden">
+      <div class="popup_register-content">
+        <div class="popup-close">
+          <span class="popup-close_line one"></span>
+          <span class="popup-close_line two"></span>
+        </div>
+
+        <p class="popup_register-title">Register</p>
+
+        <p class="first-name">First name</p>
+        <label for="first-name"></label>
+        <input id="first-name" type="text" class="input-popup">
+
+        <p class="last-name">Last name</p>
+        <label for="last-name"></label>
+        <input id="last-name" type="text" class="input-popup">
+
+        <p class="email">E-mail</p>
+        <label for="email"></label>
+        <input id="email" type="email" class="input-popup">
+
+        <p class="password">Password</p>
+        <label for="password"></label>
+        <input id="password" type="password" class="input-popup">
+
+        <button class="register">Sign Up</button>
+
+        <div class="popup-footer">
+          <p class="popup_register-coment">Already have an account?</p>
+          <p class="login-reg">Login</p>
+        </div>
+      </div>
+    </div>
     <section class="welcome">
       <div class="overlay"></div>
       <div class="welcome-bg">
@@ -526,8 +559,8 @@
             <p class="get_card-text">You will be able to see a reader card after logging into account 
                                       or you can register a new account</p>
             <div class="get_card-buttons">
-              <button class="register">Sign Up</button>
-              <button class="register">Log in</button>
+              <button class="register signup-card">Sign Up</button>
+              <button class="register login-card">Log in</button>
             </div>
           </div>
         </div>
