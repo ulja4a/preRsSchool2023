@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupRegisterMenu = document.querySelector('.popup_register-content')
   const popupClose = document.querySelector('.popup-close');
   const signUpCard = document.querySelector('.signup-card');
+  const inputPopup = document.querySelectorAll('.input-popup');
+  const registerBtn = document.querySelector('.register');
 
   (function () {
   burger.addEventListener('click', (e) => {
@@ -252,6 +254,26 @@ signUpCard.addEventListener('click', ()=> {
   popupRegister.classList.remove('hidden');
 });
 
+//Валидация при регистрации
+registerBtn.addEventListener('click', ()=> {
+  let valid = true;
+  inputPopup.forEach((inputPopup)=> {
+    if (!inputPopup.value) {
+      valid = false;
+    }
+  });
+    if (password.value.length < 8) {
+      valid = false;
+    }
+    if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(email.value)) {
+      valid = false;
+    }
+    if (!valid) {
+      alert('Пожалуйста, заполните все поля правильно!');
+      return;
+    }
+  });
+  
 
 
 });
