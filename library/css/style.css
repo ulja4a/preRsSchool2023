@@ -88,8 +88,23 @@ header {
   color: #FFFFFF;
 }
 
-.icon {
+.icon,
+.log-reg {
   z-index: 20;
+}
+
+.icon-user {
+  background-color: #FFFFFF;
+  color: #0C0C0E;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
 }
 
 .nav-icon {

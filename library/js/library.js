@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('.nav');
   const menuClose = document.querySelector('.nav__close');
   const menuItem = document.querySelectorAll('.nav-link');
-  const menuIcon = document.querySelector('.icon');
+  //const menuIcon = document.querySelector('.icon');
+  const navIcon = document.querySelector('.nav-icon');
+  const logReg = document.querySelector('.log-reg');
   const iconProfile = document.querySelector('.icon');
   const menuProfile = document.querySelector('.menu_register');
   const register = document.querySelector('.regist');
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   document.onclick = function(event) {
-    if (!menu.contains(event.target) && event.target !== burger && !menu.contains(event.target) && !menuClose.contains(event.target) && event.target !== menuIcon) {
+    if (!menu.contains(event.target) && event.target !== burger && !menu.contains(event.target) && !menuClose.contains(event.target) && event.target !== iconProfile) {
       menu.classList.remove('nav_active');
     }
   }, { passive: true };
@@ -272,8 +274,40 @@ registerBtn.addEventListener('click', ()=> {
       alert('Пожалуйста, заполните все поля правильно!');
       return;
     }
-  });
-  
+    if (valid) {
+      alert('Регистрация прошла успешно!');
 
+      //Создаем объект с данными юзера
+      const userData = {
+        firstName: document.querySelector('#first-name').value,
+        lastName: document.querySelector('#last-name').value,
+        email: document.querySelector('#email').value,
+        password: document.querySelector('#password').value
+      };
+    
+      // Преобразуем объект в JSON
+      const userDataJSON = JSON.stringify(userData);
+    
+      // Сохраняем данные в Local Storage
+      localStorage.setItem('userData', userDataJSON);
+
+
+      popupRegister.classList.add('hidden');
+    }
+  });
+  //Достаем данные из Local Storage
+  const userDataJSON = localStorage.getItem('userData');
+  const userData = JSON.parse(userDataJSON);
+
+  // Получите значения first name и last name
+  const firstName = userData.firstName[0].toUpperCase();
+  const lastName = userData.lastName[0].toUpperCase();
+  let iconUser = document.createElement('div');
+  iconUser.classList.add('icon-user');
+  iconUser.textContent = firstName + lastName;
+  console.log(iconUser);
+  logReg.appendChild(iconUser);
+  iconProfile.classList.add('hidden');
+  iconUser.style.opacity = '1';
 
 });
