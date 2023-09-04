@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const logReg = document.querySelector('.log-reg');
   const iconProfile = document.querySelector('.icon');
   const menuProfile = document.querySelector('.menu_register');
+  const menuLogout = document.querySelector('.menu_logout');
   const register = document.querySelector('.regist');
+  const logout = document.querySelector('.logout');
   const popupRegister = document.querySelector('.popup_register');
   const popupRegisterMenu = document.querySelector('.popup_register-content')
   const popupClose = document.querySelector('.popup-close');
@@ -300,14 +302,44 @@ registerBtn.addEventListener('click', ()=> {
   const userData = JSON.parse(userDataJSON);
 
   // Получите значения first name и last name
-  const firstName = userData.firstName[0].toUpperCase();
-  const lastName = userData.lastName[0].toUpperCase();
+  const firstName = userData.firstName;
+  const lastName = userData.lastName;
+  const firstNameLetter = userData.firstName[0].toUpperCase();
+  const lastNameLetter = userData.lastName[0].toUpperCase();
   let iconUser = document.createElement('div');
   iconUser.classList.add('icon-user');
-  iconUser.textContent = firstName + lastName;
+  iconUser.textContent = firstNameLetter + lastNameLetter;
+  iconUser.title = `${firstName} ${lastName}`;
   console.log(iconUser);
   logReg.appendChild(iconUser);
   iconProfile.classList.add('hidden');
   iconUser.style.opacity = '1';
+
+  //Меню зарегестрированого пользователя
+iconUser.addEventListener('click', ()=> {
+  menuLogout.classList.toggle('menu-visable');
+  if (!menu.classList.contains('nav_active')) {
+    menu.classList.remove('nav_active');
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (!menuLogout.classList.contains('menu-visable') && !iconUser.contains(event.target) && !logout.contains(event.target)) {
+    menuLogout.classList.add('menu-visable');
+  }
+});
+
+//Генерируем случайній номер карты и записываем его в Local Storage
+function generateCardNumber() {
+  const min = 0x100000000;
+  const max = 0xFFFFFFFFF;
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min; 
+  return randomNumber.toString(16).toUpperCase();
+}
+const cardNumber = generateCardNumber();
+console.log(cardNumber);
+userData.cardnumber = cardNumber;
+const updatedUserDataJSON = JSON.stringify(userData);
+localStorage.setItem('userData', updatedUserDataJSON);
 
 });
