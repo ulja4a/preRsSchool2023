@@ -12,11 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuProfile = document.querySelector('.menu_register');
   const menuLogout = document.querySelector('.menu_logout');
   const register = document.querySelector('.regist');
+  const login = document.querySelector('.login');
   const logout = document.querySelector('.logout');
+  const titleLogoutElement = document.querySelector('.title_logout');
   const popupRegister = document.querySelector('.popup_register');
-  const popupRegisterMenu = document.querySelector('.popup_register-content')
+  const popupLogin = document.querySelector('.popup_login');
+  const popupRegisterMenu = document.querySelector('.popup_register-content');
   const popupClose = document.querySelector('.popup-close');
+  const popupLoginClose = document.querySelector('.popup_login-close');
   const signUpCard = document.querySelector('.signup-card');
+  const logInCard = document.querySelector('.login-card');
   const inputPopup = document.querySelectorAll('.input-popup');
   const registerBtn = document.querySelector('.register');
 
@@ -231,9 +236,96 @@ document.addEventListener('click', (event) => {
     menuProfile.classList.add('menu-visable');
   }
 });
+/*//-----------------------------------------------
+
+//Генерируем случайній 9-ый номер 
+function generateCardNumber() {
+  const min = 0x100000000;
+  const max = 0xFFFFFFFFF;
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min; 
+  return randomNumber.toString(16).toUpperCase();
+}
+
+// Функция для регистрации нового пользователя
+function registerUser() {
+  const firstName = document.querySelector('#first-name').value;
+  const lastName = document.querySelector('#last-name').value;
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+  
+  // Функция для проверки валидности email
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Валидация данных
+if (!firstName || !lastName || !email || password.length < 8 || !isValidEmail(email)) {
+  alert('Пожалуйста, заполните все поля правильно!');
+  return;
+}
+  // Создаем объект с данными юзера
+  const currentUserData = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+  };
+  const cardNumber = generateCardNumber();
+  currentUserData.cardNumber = cardNumber;
+
+  const currentUserDataJSON = JSON.stringify(currentUserData);
+  localStorage.setItem('currentUserData', currentUserDataJSON);
+
+  alert('Регистрация прошла успешно!');
+
+  // Обновляем элементы на странице
+  const firstNameLetter = firstName[0].toUpperCase();
+  const lastNameLetter = lastName[0].toUpperCase();
+  const iconUser = document.createElement('div');
+  iconUser.classList.add('icon-user');
+  iconUser.textContent = firstNameLetter + lastNameLetter;
+  iconUser.title = `${firstName} ${lastName}`;
+  logReg.appendChild(iconUser);
+  iconProfile.classList.add('hidden');
+  iconUser.style.opacity = '1';
+  menuLogout.classList.remove('menu-visable');
+
+
+registerBtn.addEventListener('click', registerUser);
+registerBtn.addEventListener('click', ()=> {
+  let valid = true;
+  inputPopup.forEach((inputPopup)=> {
+    if (!inputPopup.value) {
+      valid = false;
+    }
+  });
+});
+// Проверяем, есть ли уже данные пользователя в Local Storage
+//const currentUserDataJSON = localStorage.getItem('currentUserData');
+if (currentUserDataJSON) {
+  const currentUserData = JSON.parse(currentUserDataJSON);
+  const firstName = currentUserData.firstName;
+  const lastName = currentUserData.lastName;
+
+  // Обновляем элементы на странице
+  const firstNameLetter = firstName[0].toUpperCase();
+  const lastNameLetter = lastName[0].toUpperCase();
+  const iconUser = document.createElement('div');
+  iconUser.classList.add('icon-user');
+  iconUser.textContent = firstNameLetter + lastNameLetter;
+  iconUser.title = `${firstName} ${lastName}`;
+  logReg.appendChild(iconUser);
+  iconProfile.classList.add('hidden');
+  iconUser.style.opacity = '1';
+  menuLogout.classList.remove('menu-visable');
+
+}
+
 
 //Меню регистрации
 register.addEventListener('click', ()=> {
+  console.log(22);
   popupRegister.classList.remove('hidden');
   if (!menuProfile.classList.contains('menu-visable')) {
     menuProfile.classList.add('menu-visable');
@@ -241,6 +333,47 @@ register.addEventListener('click', ()=> {
   
 });
 
+popupClose.addEventListener('click', (e) => {
+  popupRegister.classList.add('hidden');
+});
+
+popupRegister.addEventListener('click', (e) => {
+  if (e.target === popupRegister) {
+    popupRegister.classList.add('hidden');
+  }
+});
+
+signUpCard.addEventListener('click', ()=> {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'})
+  popupRegister.classList.remove('hidden');
+});
+
+//Меню зарегестрированого пользователя
+iconUser.addEventListener('click', ()=> {
+  menuLogout.classList.toggle('menu-visable');
+  if (!menu.classList.contains('nav_active')) {
+    menu.classList.remove('nav_active');
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (!menuLogout.classList.contains('menu-visable') && !iconUser.contains(event.target) && !logout.contains(event.target)) {
+    menuLogout.classList.add('menu-visable');
+  }
+});
+}*/
+//--------------------------------------------
+//Меню регистрации
+register.addEventListener('click', ()=> {
+  console.log(22);
+  popupRegister.classList.remove('hidden');
+  if (!menuProfile.classList.contains('menu-visable')) {
+    menuProfile.classList.add('menu-visable');
+  }
+  
+});
 popupClose.addEventListener('click', (e) => {
   popupRegister.classList.add('hidden');
 });
@@ -280,36 +413,37 @@ registerBtn.addEventListener('click', ()=> {
       alert('Регистрация прошла успешно!');
 
       //Создаем объект с данными юзера
-      const userData = {
+      const carrentUserData = {
         firstName: document.querySelector('#first-name').value,
         lastName: document.querySelector('#last-name').value,
         email: document.querySelector('#email').value,
         password: document.querySelector('#password').value
       };
-    
+      console.log(carrentUserData);
       // Преобразуем объект в JSON
-      const userDataJSON = JSON.stringify(userData);
+      let carrentUserDataJSON = JSON.stringify(carrentUserData);
     
       // Сохраняем данные в Local Storage
-      localStorage.setItem('userData', userDataJSON);
-
+      localStorage.setItem('carrentUserData', carrentUserDataJSON);
+      console.log(carrentUserData);
 
       popupRegister.classList.add('hidden');
     }
   });
   //Достаем данные из Local Storage
-  const userDataJSON = localStorage.getItem('userData');
-  const userData = JSON.parse(userDataJSON);
-
+  let carrentUserDataJSON = localStorage.getItem('carrentUserData');
+  let carrentUserData = JSON.parse(carrentUserDataJSON);
+console.log(carrentUserData);
   // Получите значения first name и last name
-  const firstName = userData.firstName;
-  const lastName = userData.lastName;
-  const firstNameLetter = userData.firstName[0].toUpperCase();
-  const lastNameLetter = userData.lastName[0].toUpperCase();
+  let firstname = carrentUserData.firstName;
+  console.log(firstname);
+  let lastname = carrentUserData.lastName;
+  let firstNameLetter = carrentUserData.firstName[0].toUpperCase();
+  let lastNameLetter = carrentUserData.lastName[0].toUpperCase();
   let iconUser = document.createElement('div');
   iconUser.classList.add('icon-user');
   iconUser.textContent = firstNameLetter + lastNameLetter;
-  iconUser.title = `${firstName} ${lastName}`;
+  iconUser.title = `${firstname} ${lastname}`;
   console.log(iconUser);
   logReg.appendChild(iconUser);
   iconProfile.classList.add('hidden');
@@ -336,10 +470,47 @@ function generateCardNumber() {
   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min; 
   return randomNumber.toString(16).toUpperCase();
 }
-const cardNumber = generateCardNumber();
-console.log(cardNumber);
-userData.cardnumber = cardNumber;
-const updatedUserDataJSON = JSON.stringify(userData);
-localStorage.setItem('userData', updatedUserDataJSON);
+const carrentCardNumber = generateCardNumber();
+console.log(carrentCardNumber);
+carrentUserData.carrentCardnumber = carrentCardNumber;
+const updatedCarrentUserDataJSON = JSON.stringify(carrentUserData);
+localStorage.setItem('carrentUserData', updatedCarrentUserDataJSON);
+titleLogoutElement.textContent = carrentCardNumber;
+
+//Выход LogOut
+logout.addEventListener('click', () => {
+  console.log(555);
+  valid = false;
+  menuLogout.classList.add('menu-visable');
+  iconUser.classList.toggle('hidden');
+  iconProfile.classList.toggle('hidden');
+});
+
+//Залогиниться
+login.addEventListener('click', ()=> {
+  console.log(33);
+  popupLogin.classList.remove('hidden');
+  if (!menuProfile.classList.contains('menu-visable')) {
+    menuProfile.classList.add('menu-visable');
+  }
+  
+});
+popupLoginClose.addEventListener('click', (e) => {
+  popupLogin.classList.add('hidden');
+});
+
+popupLogin.addEventListener('click', (e) => {
+  if (e.target === popupLogin) {
+    popupLogin.classList.add('hidden');
+  }
+});
+
+logInCard.addEventListener('click', ()=> {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'})
+  popupLogin.classList.remove('hidden');
+});
+
 
 });
