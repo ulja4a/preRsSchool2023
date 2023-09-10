@@ -22,13 +22,27 @@
             <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
             <li class="nav-item"><a href="#cards" class="nav-link">Library Card</a></li>
           </ul>
-          <img class="icon__burger" src="assets/img/subtract.svg" alt="icon_profile">
+          <!--<img class="icon__burger" src="assets/img/subtract.svg" alt="icon_profile">-->
           <div class="nav__close">
             <span class="nav__line_close"></span>
             <span class="nav__line_close"></span>
           </div>
         </nav>
-        <img class="icon" src="assets/img/subtract.svg" alt="icon_profile">
+        <div class="log-reg">
+          <img class="icon" src="assets/img/subtract.svg" alt="icon_profile">
+        </div>
+        <div class="menu_register menu-visable">
+          <p class="title_register">Profile</p>
+          <hr class="line_register">
+          <p class="text_register login">Log In</p>
+          <p class="text_register regist">Register</p>
+        </div>
+        <div class="menu_logout menu-visable">
+          <p class="title_logout">Profile</p>
+          <hr class="line_register">
+          <p class="text_logout profile">My profile</p>
+          <p class="text_logout logout">Log Out</p>
+        </div>
         <div class="header__burger">
           <span class="burger__line burger__line_first"></span>
           <span class="burger__line burger__line_second"></span>
@@ -38,6 +52,109 @@
     </div>
   </header>
   <main class="main">
+    <div class="popup_register hidden">
+      <div class="popup_register-content">
+        <div class="popup-close">
+          <span class="popup-close_line one"></span>
+          <span class="popup-close_line two"></span>
+        </div>
+
+        <p class="popup_register-title">Register</p>
+
+        <p class="first-name">First name</p>
+        <label for="first-name"></label>
+        <input id="first-name" type="text" class="input-popup">
+
+        <p class="last-name">Last name</p>
+        <label for="last-name"></label>
+        <input id="last-name" type="text" class="input-popup">
+
+        <p class="email">E-mail</p>
+        <label for="email"></label>
+        <input id="email" type="email" class="input-popup">
+
+        <p class="password">Password</p>
+        <label for="password"></label>
+        <input id="password" type="password" class="input-popup">
+
+        <button class="register">Sign Up</button>
+
+        <div class="popup-footer">
+          <p class="popup_register-coment">Already have an account?</p>
+          <p class="login-reg">Login</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup_login hidden">
+      <div class="popup_login-content">
+        <div class="popup_login-close">
+          <span class="popup-close_line one"></span>
+          <span class="popup-close_line two"></span>
+        </div>
+
+        <p class="popup_login-title">Login</p>
+
+        <p class="email-log">E-mail or readers card</p>
+        <label for="email-log"></label>
+        <input id="email-log" type="email" class="input-popup">
+
+        <p class="password-log">Password</p>
+        <label for="password-log"></label>
+        <input id="password-log" type="password" class="input-popup">
+
+        <button class="login">Log In</button>
+
+        <div class="popup-footer">
+          <p class="popup_login-coment">Don't have an account?</p>
+          <p class="registr-reg">Register</p>
+        </div>
+      </div>
+    </div>
+    <div class="popup_myprofile hidden">
+      <div class="popup_myprofile-content">
+        <div class="popup_myprofile-close">
+          <span class="popup-close_line one"></span>
+          <span class="popup-close_line two"></span>
+        </div>
+        <div class="sidebar_myprofile">
+          <div class="myprofile-icon">hf</div>
+          <div class="myprofile-name">hdg fgj</div>
+        </div>
+        <div class="main_myprofile">
+          <p class="myprofile_title">My profile</p>
+          <div class="myprofile_cards">
+            <div class="visits">
+              <p class="visits-title">Visits</p>
+              <img src="assets/img/union.svg" alt="visits">
+              <p class="visits-text">0</p>
+            </div>
+            <div class="bonuses">
+              <p class="bonuses-title">Bonuses</p>
+              <img src="assets/img/bonuses.svg" alt="bonuses">
+              <p class="bonuses-text">1240</p>
+            </div>
+            <div class="books">
+              <p class="books-title">Books</p>
+              <img src="assets/img/book.svg" alt="books">
+              <p class="books-text">0</p>
+            </div>
+          </div>
+          <div class="rented-books">
+            <p class="rented-text">Rented books</p>
+            <nav class="rented-nav">
+              <li class="rented-item">The Last Queen, Clive Irving</li>
+              <li class="rented-item">The Last Queen, Clive Irving</li>
+            </nav>
+          </div>
+          <div class="card-number">
+            <p class="card-text">Card number</p>
+            <p class="number">FE9EBF667</p>
+            <img class="card-copy" src="assets/img/iconcopy.svg" alt="card copy">
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="welcome">
       <div class="overlay"></div>
       <div class="welcome-bg">
@@ -56,37 +173,31 @@
           <p class="about__text">
           The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
           </p>
-          <div class="about__slider_3-columns">
-            <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
-            <img src="./assets/img/image2.png" alt="Woman in the library" class="about__img">
-            <img src="./assets/img/image3.png" alt="Woman in the library" class="about__img">
-          </div>
-          <div class="about__slider_2-columns">
-            <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
-            <img src="./assets/img/image2.png" alt="Woman in the library" class="about__img">
-          </div>
-          <div class="about__slider_1-columns">
-            <img src="./assets/img/carret_left.svg" alt="carret_left" class="carret_left">
-            <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
-            <img src="./assets/img/carret_right.svg" alt="carret_right" class="carret_right">
-          </div>
+            <div class="about__slider-wrapper">
+              <img src="./assets/img/carret_left.svg" alt="carret_left" class="carret_left">
+            
+              <div class="about__slider">
+                <div class="about__slider-track">
+                  <img src="./assets/img/image1.png" alt="Woman in the library" class="about__img">
+                  <img src="./assets/img/image2.png" alt="Woman in the library" class="about__img">
+                  <img src="./assets/img/image3.png" alt="Woman in the library" class="about__img">
+                  <img src="./assets/img/image4.png" alt="Woman in the library" class="about__img">
+                  <img src="./assets/img/image5.png" alt="Woman in the library" class="about__img">
+                </div>
+              
+              </div>
+            
+              
+              <img src="./assets/img/carret_right.svg" alt="carret_right" class="carret_right">
+            </div>
           <div class="slider__pagination">
-            <span class="element__pagination">
-              <img src="./assets/img/active_slide_pagination.svg" alt="Brown circle" class="element__pagination_activ">
-            </span>
-            <span class="element__pagination">
-              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv">
-            </span>
-            <span class="element__pagination">
-              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv">
-            </span>
-            <span class="element__pagination">
-              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv-more">
-            </span>
-            <span class="element__pagination">
-              <img src="./assets/img/unactive_slide_pagination.svg" alt="Black circle" class="element__pagination_unactiv-more">
-            </span>
+            <div class="element__pagination active"></div>
+            <div class="element__pagination"></div>
+            <div class="element__pagination"></div>
+            <div class="element__pagination"></div>
+            <div class="element__pagination"></div>
           </div>
+        </div>
         </div>
     </section>
     <section class="favorites" id="favorites">
@@ -525,8 +636,8 @@
             <p class="get_card-text">You will be able to see a reader card after logging into account 
                                       or you can register a new account</p>
             <div class="get_card-buttons">
-              <button class="register">Sign Up</button>
-              <button class="register">Log in</button>
+              <button class="register signup-card">Sign Up</button>
+              <button class="register login-card">Log in</button>
             </div>
           </div>
         </div>
