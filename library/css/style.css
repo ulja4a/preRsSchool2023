@@ -109,6 +109,7 @@ header {
   justify-content: center;
   align-items: center;
   opacity: 0;
+  font-size: 15px;
 }
 
 .nav-icon {
@@ -243,12 +244,162 @@ ul {
   transition: opacity 0.3s ease-in-out;
 }
 
+.popup_myprofile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(20, 20, 20, 0.8);
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.popup_myprofile-content {
+  width: 600px;
+  height: 400px;
+  background: #FFFFFF;
+  position: relative;
+  display: flex;
+}
+
+.main_myprofile {
+  padding: 40px 0 39px 20px;
+}
+
+.myprofile_title {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.myprofile_cards {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.visits,
+.bonuses,
+.books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.rented-books {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.rented-text {
+  font-family: Inter;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0C0C0E;
+}
+
+.rented-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 40px;
+}
+
+.rented-item {
+  padding-left: 10px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.card-number {
+  display: flex;
+  gap: 15px;
+}
+
+.card-text {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0C0C0E;
+}
+
+.number {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #BB945F;
+}
+
 .popup_register-content {
   width: 250px;
   height: 382px;
   background: #FFFFFF;
   padding: 20px 25px;
   position: relative;
+}
+
+.sidebar_myprofile {
+  width: 170px;
+  height: 403px;
+  background-color: #0C0C0E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.myprofile-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #FFFFFF;
+  color: #BB945F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.myprofile-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000;
+  padding: 5px 15px;
+  margin: 0 10px;
 }
 
 .popup_login-content {
@@ -320,6 +471,15 @@ ul {
   cursor: pointer;
   position: absolute;
   right: 15px;
+}
+
+.popup_myprofile-close {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: 25px;
 }
 
 .popup-close_line {
