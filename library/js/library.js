@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!menu.classList.contains('nav_active')) {
         menu.classList.remove('nav_active');
       }
+      loginUser();
     });
 
     document.addEventListener('click', (event) => {
