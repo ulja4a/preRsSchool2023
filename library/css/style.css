@@ -674,6 +674,7 @@ ul {
 
 .element__pagination.active {
   background: #BB945F;
+  cursor: auto;
 }
 
 .element__pagination.hidden {

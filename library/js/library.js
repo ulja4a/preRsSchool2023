@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const myProfileIcon = document.querySelector('.myprofile-icon');
     const myProfileName =document.querySelector('.myprofile-name');
     const loginInPopupRegistr = document.querySelector('.login-reg');
+    const signupInPopupLogin = document.querySelector('.registr-reg');
 
 
     //Burger 
@@ -70,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarretVisibility();
     rollSlider();
+    updatePagination();
 
     // Перерассчитываем количество отображаемых слайдов при загрузке страницы
     window.addEventListener('load', ()=> {
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
       if (sliderWrapperWidth > (windowWidth - 40)) {
         slidesToShow = Math.max(slidesToShow - 1, 1);
+        console.log(slidesToShow);
         sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
         updatePagination(); // Обновление точек пагинации при изменении slidesToShow
         updateCarretVisibility();
@@ -165,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pagination.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        position = index * slidesToShow;
+        console.log(slidesToShow);
+        position = index/* * slidesToShow*/;
         rollSlider();
         updateCarretVisibility();
         paginationIndex(position);
@@ -236,30 +240,70 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    
+    //Залогиниться
+    function loginUser() {
+      login.addEventListener('click', ()=> {
+        console.log(33);
+        popupLogin.classList.remove('hidden');
+        if (!menuProfile.classList.contains('menu-visable')) {
+          menuProfile.classList.add('menu-visable');
+        }
+        
+      });
+      popupLoginClose.addEventListener('click', () => {
+        popupLogin.classList.add('hidden');
+      });
+
+      popupLogin.addEventListener('click', (e) => {
+        if (e.target === popupLogin) {
+          popupLogin.classList.add('hidden');
+        }
+      });
+      signupInPopupLogin.addEventListener('click', ()=>{
+        popupLogin.classList.toggle('hidden');
+        popupRegister.classList.toggle('hidden');
+      });
+    };
+
     //Меню регистрации открітие и закрітие
-    register.addEventListener('click', ()=> {
-      console.log(22);
-      popupRegister.classList.remove('hidden');
-      if (!menuProfile.classList.contains('menu-visable')) {
-        menuProfile.classList.add('menu-visable');
-      }
-    });
-    popupClose.addEventListener('click', () => {
-      popupRegister.classList.add('hidden');
-    });
-    popupRegister.addEventListener('click', (e) => {
-      if (e.target === popupRegister) {
+      register.addEventListener('click', ()=> {
+        console.log(22);
+        popupRegister.classList.remove('hidden');
+        if (!menuProfile.classList.contains('menu-visable')) {
+          menuProfile.classList.add('menu-visable');
+        }
+      });
+      popupClose.addEventListener('click', () => {
         popupRegister.classList.add('hidden');
-      }
-    });
+      });
+      popupRegister.addEventListener('click', (e) => {
+        if (e.target === popupRegister) {
+          popupRegister.classList.add('hidden');
+        }
+      });
+      loginInPopupRegistr.addEventListener('click', ()=>{
+        popupRegister.classList.toggle('hidden');
+        popupLogin.classList.toggle('hidden');
+        loginUser();
+      });
     //меню регистрации из секции card
     signUpCard.addEventListener('click', ()=> {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'})
       popupRegister.classList.remove('hidden');
+      loginUser();
     });
+    //меню login из секции card
+    logInCard.addEventListener('click', ()=> {
+      console.log('login in card')
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'})
+      popupLogin.classList.remove('hidden');
+      loginUser();
+    });
+    
     let iconUser;
     let firstName, lastName, email, password;
     let allUsersData = [];
@@ -380,32 +424,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuLogout.classList.add('menu-visable');
         iconUser.classList.toggle('hidden');
         iconProfile.classList.toggle('hidden');
-      });
-
-      //Залогиниться
-      login.addEventListener('click', ()=> {
-        console.log(33);
-        popupLogin.classList.remove('hidden');
-        if (!menuProfile.classList.contains('menu-visable')) {
-          menuProfile.classList.add('menu-visable');
-        }
-        
-      });
-      popupLoginClose.addEventListener('click', () => {
-        popupLogin.classList.add('hidden');
-      });
-
-      popupLogin.addEventListener('click', (e) => {
-        if (e.target === popupLogin) {
-          popupLogin.classList.add('hidden');
-        }
-      });
-
-      logInCard.addEventListener('click', ()=> {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'})
-        popupLogin.classList.remove('hidden');
       });
       
       //Открытие профиля
