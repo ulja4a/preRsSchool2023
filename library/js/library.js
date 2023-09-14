@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarretVisibility();
     rollSlider();
-    
+    updatePagination();
 
     // Перерассчитываем количество отображаемых слайдов при загрузке страницы
     window.addEventListener('load', ()=> {
@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
       if (sliderWrapperWidth > (windowWidth - 40)) {
         slidesToShow = Math.max(slidesToShow - 1, 1);
+        console.log(slidesToShow);
         sliderWrapperWidth = (firstImgWidth * slidesToShow) + ((slidesToShow - 1) * 25);
         updatePagination(); // Обновление точек пагинации при изменении slidesToShow
         updateCarretVisibility();
@@ -167,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pagination.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        position = index * slidesToShow;
+        console.log(slidesToShow);
+        position = index/* * slidesToShow*/;
         rollSlider();
         updateCarretVisibility();
         paginationIndex(position);
