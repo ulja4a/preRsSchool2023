@@ -1,0 +1,59 @@
+/* Задаем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+
+body {
+  position: absolute;
+  min-width: 480px;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  background: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter) center center no-repeat fixed;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  transition: transform ease-in-out 0.5s;
+  color: aliceblue;
+}
+
+.box {
+  background-color: rgb(255 255 255 / 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+}
