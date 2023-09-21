@@ -1,48 +1,28 @@
-/* Задаем box sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 /* Убираем внешние отступы */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
 
 body {
-  position: absolute;
-  min-width: 480px;
-  max-height: 100vh;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #fff;
-  background: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter) center center no-repeat fixed;
+  /*background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter);*/
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   backdrop-filter: blur(10px);
-  z-index: -1;
-  transition: transform ease-in-out 0.5s;
-  color: aliceblue;
+  transition: background-image 1s ease-in-out;
 }
+
 
 .box {
   background-color: rgb(255 255 255 / 0.3);
@@ -56,4 +36,154 @@ footer{
   position: absolute;
   bottom: 0;
   margin: auto;
+}
+
+.player {
+  width: 40vw;
+  height: 80vh;
+  border-radius: 1rem;
+  background: rgb(78, 77, 77);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.cover_background {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg);
+  background-size: cover;
+  border-radius: 1rem;
+  transition: background-image 1s ease-in-out;
+}
+
+.player_container {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.name-track {
+  padding-bottom: 1rem;
+}
+
+input[type=range] {
+  appearance: none;
+  background: rgb(78, 77, 77);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 0.8rem;
+  height: 5px;
+  background-color: #fff;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background: #2b2a2a;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  width:0.8rem;
+  height: 5px;
+  -webkit-appearance: none;
+}
+
+.progress-bar {
+  width: 100%;
+}
+
+.time {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  font-size: 0.5rem;
+  opacity: 0.5;
+  margin-top: 0.2rem;
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.play-prev {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/backward.png);
+  background-size: cover;
+}
+.play-pause {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/play.png);
+  background-size: cover;
+}
+.play-next {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/backward.png);
+  transform: rotate(180deg);
+  background-size: cover;
+}
+.volume {
+  display: flex;
+  justify-content: flex-end;
+}
+.volume-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/volume.png);
+  background-size: cover;
+}
+.volume-bar {
+  width: 80%;
+  margin-left: 1rem;
+}
+
+.play-list {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  font-size: 0.8rem;
+}
+
+.play-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.play-item:last-child {
+  margin-bottom: 0;
 }
