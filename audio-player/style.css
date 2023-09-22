@@ -14,7 +14,7 @@ body {
   font-weight: 400;
   font-size: 1rem;
   color: #fff;
-  /*background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter);*/
+  background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -73,6 +73,7 @@ footer{
   background-size: cover;
   border-radius: 1rem;
   transition: background-image 1s ease-in-out;
+  border: 1px solid rgb(219, 219, 52);
 }
 
 .player_container {
@@ -127,6 +128,7 @@ input[type=range]::-webkit-slider-thumb {
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
+  gap: 2rem;
 }
 
 .play-prev {
@@ -192,4 +194,8 @@ span {
 }
 .play-item:last-child {
   margin-bottom: 0;
+}
+
+.active {
+  color: rgb(219, 219, 52);
 }

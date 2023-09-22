@@ -1,6 +1,9 @@
 const audioPlay = document.querySelector('.play-pause');
 const buttonNext = document.querySelector('.play-next');
 const buttonPrev = document.querySelector('.play-prev');
+const cover = document.querySelector('.cover_background');
+const nameTrack = document.querySelector('.name-track');
+const trackList = document.querySelectorAll('.play-item');
 
 const playList = [
   {
@@ -14,13 +17,15 @@ const playList = [
     name: "Don't Worry Be Happy",
     autor: 'Bobby McFerrin',
     cover: 'http://127.0.0.1:5500/audio-player/assets/img/behappy.jpg'
+  },
+  {
+    url: 'http://127.0.0.1:5500/audio-player/assets/audio/shampanskoch.mp3',
+    name: "Шампанські очі",
+    autor: 'Скрябін',
+    cover: 'http://127.0.0.1:5500/audio-player/assets/img/shampanskochi.jpg'
   }
 ]
 
-function changeBackground() {
-  document.body.style.backgroundImage = 'url("./assets/img/earth_wind_fire_boogie_wonderland.jpg")';
-}
-changeBackground();
 
 let audio = new Audio();
 let isPlay = false;
@@ -53,14 +58,15 @@ function playNext() {
   } else {
     playNum = 0;
   }
-  if (isPlay) {
+    isPlay = false;
     playAudio();
-  }
-  console.log(playNum);
+    trackActiveClass();
 }
 
 buttonNext.addEventListener('click', () => {
   playNext();
+  changeBackground();
+  changeName()
 })
 
 function playPrev() {
@@ -69,13 +75,32 @@ function playPrev() {
   } else {
     playNum = playList.length - 1;
   }
-  if (isPlay) {
-    playAudio();
-  }
-  console.log(playNum);
+  isPlay = false;
+  playAudio();
+  trackActiveClass();
 }
 
 buttonPrev.addEventListener('click', () => {
   playPrev();
+  changeBackground();
+  changeName()
 })
 
+function changeBackground() {
+  let currentCover = playList[playNum].cover;
+  document.body.style.backgroundImage = `url(${currentCover})`;
+  cover.style.backgroundImage = `url(${currentCover})`;
+}
+
+function changeName() {
+  let currentAutor = playList[playNum].autor;
+  let currentName = playList[playNum].name;
+  nameTrack.textContent = `${currentAutor} - ${currentName}`;
+}
+
+function trackActiveClass() {
+  trackList.forEach((track) => {
+    track.classList.remove('active');
+    trackList[playNum].classList.add('active');
+  })
+}
