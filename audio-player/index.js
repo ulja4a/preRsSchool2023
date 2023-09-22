@@ -4,6 +4,8 @@ const buttonPrev = document.querySelector('.play-prev');
 const cover = document.querySelector('.cover_background');
 const nameTrack = document.querySelector('.name-track');
 const trackList = document.querySelectorAll('.play-item');
+const lengthSoundTrack = document.querySelector('.sound-time');
+const lengthPlayListSoundTrack = document.querySelectorAll('.playlist-soundtime');
 
 const playList = [
   {
@@ -30,6 +32,7 @@ const playList = [
 let audio = new Audio();
 let isPlay = false;
 let playNum = 0;
+
 
 
 
@@ -104,3 +107,16 @@ function trackActiveClass() {
     trackList[playNum].classList.add('active');
   })
 }
+
+
+audio.addEventListener('loadedmetadata', () => {
+  let trackLength = audio.duration;
+  let minutes = Math.floor(trackLength/60);
+  let seconds = Math.floor(trackLength%60);
+  let lengthTrack = `0${minutes}:${seconds}`;
+  lengthSoundTrack.textContent = lengthTrack;
+  lengthPlayListSoundTrack.forEach((track) => {
+    lengthPlayListSoundTrack[playNum].textContent = lengthTrack;
+  })
+  console.log(lengthTrack);
+});

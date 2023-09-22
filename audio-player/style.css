@@ -199,3 +199,10 @@ span {
 .active {
   color: rgb(219, 219, 52);
 }
+
+button {
+  border: none;
+  outline: none;
+  background: rgb(78, 77, 77);
+  cursor: pointer;
+}
