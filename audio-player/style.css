@@ -89,7 +89,7 @@ footer{
   padding-bottom: 1rem;
 }
 
-input[type=range] {
+/*input[type=range] {
   appearance: none;
   background: rgb(78, 77, 77);
 }
@@ -97,7 +97,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
   border-radius: 0.8rem;
   height: 5px;
-  background-color: #fff;
+  background: #fff;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -111,6 +111,23 @@ input[type=range]::-webkit-slider-thumb {
 
 .progress-bar {
   width: 100%;
+}*/
+.progress-bar {
+  border-radius: 0.5rem;
+  height: 7px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #2b2a2a;
 }
 
 .time {
@@ -166,6 +183,7 @@ input[type=range]::-webkit-slider-thumb {
 .volume {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 .volume-btn {
   width: 1.5rem;
@@ -175,7 +193,22 @@ input[type=range]::-webkit-slider-thumb {
 }
 .volume-bar {
   width: 80%;
+  height: 7px;
+  background: linear-gradient(to right, #dbdb34 0%, #dbdb34 50%, #fff 50%, white 100%);
   margin-left: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.volume-bar::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #2b2a2a;
 }
 
 .play-list {
@@ -204,7 +237,7 @@ span {
 }
 
 .active {
-  color: rgb(219, 219, 52);
+  color: #dbdb34;
 }
 
 button {

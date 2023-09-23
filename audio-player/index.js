@@ -8,6 +8,7 @@ const trackList = document.querySelectorAll('.play-item');
 const lengthSoundTrack = document.querySelector('.sound-time');
 const currentTimeSoundTrack = document.querySelector('.current-time');
 const progressLine = document.querySelector('.progress-bar');
+const volumeLine = document.querySelector('.volume-bar');
 
 const playList = [
   {
@@ -30,17 +31,28 @@ const playList = [
   }
 ]
 
+//Загрузка всех треков
+const audioContainer = document.createElement('div');
+playList.forEach((track, index) => {
+  const audio = document.createElement('audio');
+  audio.preload = 'auto';
+  audio.src = track.url;
+  audio.id = `audio${index + 1}`;
+  audioContainer.appendChild(audio);
+});
+document.body.appendChild(audioContainer);
+
 
 let audio = new Audio();
 let isPlay = false;
 let playNum = 0;
-
+const audioFirst = document.getElementById('audio1');
 
 
 function playAudio() {
   if (!isPlay) {
     audio.src = playList[playNum].url;
-    audio.currentTime = 0;
+    //audio.currentTime = 0;
     audio.play();
     audioPlay.classList.remove('play-btn');
     audioPlay.classList.add('pause-btn');
@@ -66,6 +78,7 @@ function playNext() {
     playNum = 0;
   }
     isPlay = false;
+    audio.currentTime = 0;
     playAudio();
     trackActiveClass();
 }
@@ -92,6 +105,18 @@ buttonPrev.addEventListener('click', () => {
   changeBackground();
   changeName()
 })
+
+trackList.forEach((track, index) => {
+  track.addEventListener('click', () => {
+    const clickedIndex = Array.from(trackList).indexOf(track);
+    console.log('Индекс элемента:', clickedIndex);
+    playNum = clickedIndex;
+    playAudio();
+    trackActiveClass();
+    changeBackground();
+    changeName()
+  });
+});
 
 function changeBackground() {
   let currentCover = playList[playNum].cover;
@@ -131,11 +156,54 @@ audio.addEventListener('loadedmetadata', () => {
 //Вычисление текущего времени трека
 audio.addEventListener('timeupdate', () => {
   let currentTime = audio.currentTime;
+  console.log(currentTime);
+  let duration = audio.duration;
   let minutes = Math.floor(currentTime / 60);
   let seconds = Math.floor(currentTime % 60);
   let formattedMinutes = String(minutes).padStart(2, '0');
   let formattedSeconds = String(seconds).padStart(2, '0');
   let currentTimeTrack = `${formattedMinutes}:${formattedSeconds}`;
   currentTimeSoundTrack.textContent = currentTimeTrack;
+  let progressPercentage = (currentTime / audio.duration) * 100;
+  progressLine.value = progressPercentage;
+  progressLine.style.background = `linear-gradient(to right, #dbdb34 0%, #dbdb34 ${progressPercentage}%, #fff ${progressPercentage}%, white 100%)`;
 });
 //---------------------------------------------------------------------------------------------
+
+//Клик по прогресслайн
+progressLine.addEventListener('click', (e) => {
+  console.log(2);
+  let progressLineWidth = progressLine.offsetWidth;
+  console.log(progressLineWidth);
+  let timeToSeek = e.offsetX / parseInt(progressLineWidth) * (audio.duration || audioFirst.duration);
+  console.log(55);
+  console.log(timeToSeek);
+  audio.currentTime = timeToSeek;
+});
+
+progressLine.addEventListener('input', (event) => {
+  let progressPercentage = event.target.value;
+  let duration = audio.duration || audioFirst.duration;
+  console.log(duration)
+  let currentTime = (progressPercentage / 100) * duration;
+  console.log(currentTime);
+  audio.currentTime = currentTime;
+  event.target.style.background = 
+  `linear-gradient(to right, #dbdb34 0%, #dbdb34 ${progressPercentage}%, #fff ${progressPercentage}%, white 100%)`
+})
+//--------------------------------------------------------------------------------------
+
+//Клик по звуклайн
+volumeLine.addEventListener('click', (e) => {
+  let volumeLineWidth = volumeLine.offsetWidth;
+  console.log(volumeLineWidth);
+  let newVolume = e.offsetX / volumeLineWidth;
+  audio.volume = newVolume;
+});
+
+volumeLine.addEventListener('input', (event) => {
+  let progressPercentage = event.target.value;
+  event.target.style.background = 
+  `linear-gradient(to right, #dbdb34 0%, #dbdb34 ${progressPercentage}%, #fff ${progressPercentage}%, white 100%)`
+})
+//--------------------------------------------------------------------------------------
