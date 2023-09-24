@@ -1,0 +1,241 @@
+
+/* Убираем внешние отступы */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg#filter);
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  transition: background-image 1s ease-in-out;
+}
+
+
+.box {
+  background-color: rgb(255 255 255 / 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.year {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.player {
+  width: 40vw;
+  min-width: 380px;
+  height: 80vh;
+  min-height: 680px;
+  margin: auto;
+  border-radius: 1rem;
+  background: rgb(78, 77, 77);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.cover_background {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/img/earth_wind_fire_boogie_wonderland.jpg);
+  background-size: cover;
+  border-radius: 1rem;
+  transition: background-image 1s ease-in-out;
+  border: 1px solid rgb(219, 219, 52);
+}
+
+.player_container {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.name-track {
+  padding-bottom: 1rem;
+}
+
+.progress-bar {
+  border-radius: 0.5rem;
+  height: 7px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #2b2a2a;
+}
+
+.time {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-top: 0.2rem;
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.play-prev {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/backward.png);
+  background-size: cover;
+}
+.play-pause,
+.play-pause_list {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.playlist-play_pause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.play-btn {
+  background-image: url(./assets/svg/play.png);
+  background-size: cover;
+}
+.pause-btn {
+  background-image: url(./assets/svg/pause.png);
+  background-size: cover;
+}
+.play-next {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/backward.png);
+  transform: rotate(180deg);
+  background-size: cover;
+}
+.volume {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.volume-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(./assets/svg/volume.png);
+  background-size: cover;
+}
+
+.mute {
+  background-image: url(./assets/svg/volumeout.png);
+}
+.volume-bar {
+  width: 80%;
+  height: 7px;
+  background: linear-gradient(to right, #dbdb34 0%, #dbdb34 50%, #fff 50%, white 100%);
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.volume-bar::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #2b2a2a;
+}
+
+.play-list {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  font-size: 0.8rem;
+}
+
+.play-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.play-item:last-child {
+  margin-bottom: 0;
+}
+
+.active {
+  color: #dbdb34;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: rgb(78, 77, 77);
+  cursor: pointer;
+}
