@@ -21,13 +21,13 @@ const playList = [
     cover: './assets/img/earth_wind_fire_boogie_wonderland.jpg'
   },
   {
-    url: './assets/audio/behappy.mp3',
+    url: 'https://rolling-scopes-school.github.io/ulja4a-JSFEPRESCHOOL2023Q2/audio-player/assets/audio/behappy.mp3',
     name: "Don't Worry Be Happy",
     autor: 'Bobby McFerrin',
     cover: './assets/img/behappy.jpg'
   },
   {
-    url: './assets/audio/shampanskoch.mp3',
+    url: 'https://rolling-scopes-school.github.io/ulja4a-JSFEPRESCHOOL2023Q2/audio-player/assets/audio/shampanskoch.mp3',
     name: "Шампанські очі",
     autor: 'Скрябін',
     cover: './assets/img/shampanskochi.jpg'
