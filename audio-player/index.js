@@ -15,7 +15,7 @@ const audioFirst = document.getElementById('audio1');
 
 const playList = [
   {
-    url: './assets/audio/Earth_Wind_Fire_-_Boogie_Wonderland_48181877.mp3',
+    url: 'https://rolling-scopes-school.github.io/ulja4a-JSFEPRESCHOOL2023Q2/audio-player/assets/audio/Earth_Wind_Fire_-_Boogie_Wonderland_48181877.mp3',
     name: 'Boogie Wonderland',
     autor: 'Earth, Wind & Fire',
     cover: './assets/img/earth_wind_fire_boogie_wonderland.jpg'
