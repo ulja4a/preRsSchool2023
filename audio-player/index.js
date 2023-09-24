@@ -9,6 +9,9 @@ const lengthSoundTrack = document.querySelector('.sound-time');
 const currentTimeSoundTrack = document.querySelector('.current-time');
 const progressLine = document.querySelector('.progress-bar');
 const volumeLine = document.querySelector('.volume-bar');
+const volumeBtn = document.querySelector('.volume-btn');
+const volumeMute = document.querySelector('.mute');
+const audioFirst = document.getElementById('audio1');
 
 const playList = [
   {
@@ -46,31 +49,36 @@ document.body.appendChild(audioContainer);
 let audio = new Audio();
 let isPlay = false;
 let playNum = 0;
-const audioFirst = document.getElementById('audio1');
-
+let currentTimeBeforePause = 0;
+let isTrackPlaying = Array(playList.length).fill(false);
 
 function playAudio() {
   if (!isPlay) {
-    audio.src = playList[playNum].url;
-    //audio.currentTime = 0;
+    if (audio.src !== playList[playNum].url) {
+      audio.src = playList[playNum].url;
+      audio.currentTime = 0;
+    }
     audio.play();
     audioPlay.classList.remove('play-btn');
     audioPlay.classList.add('pause-btn');
+    isTrackPlaying[playNum] = true;
   } else {
     audio.pause();
+    currentTimeBeforePause = audio.currentTime;
     audioPlay.classList.remove('pause-btn');
     audioPlay.classList.add('play-btn');
   }
   isPlay = !isPlay;
 }
 
+//Событие клика по кнопке плей/паузе
 audioPlay.addEventListener('click', () => {
   playAudio();
   trackActiveClass();
 });
+//-----------------------------------------------------------------------------------
 
-
-
+//Функция переключения следующего трека
 function playNext() {
   if (playNum < playList.length - 1) {
     playNum++;
@@ -82,13 +90,17 @@ function playNext() {
     playAudio();
     trackActiveClass();
 }
+//-----------------------------------------------------------------------------
 
+//Событие клика по кнопке следующего трека
 buttonNext.addEventListener('click', () => {
   playNext();
   changeBackground();
   changeName()
 })
+//-----------------------------------------------------------------------------
 
+//Функция переключения предыдущего трека
 function playPrev() {
   if (playNum > 0) {
     playNum--;
@@ -99,13 +111,17 @@ function playPrev() {
   playAudio();
   trackActiveClass();
 }
+//------------------------------------------------------------------------------
 
+//Событие клика на кнопку предыдущего трека
 buttonPrev.addEventListener('click', () => {
   playPrev();
   changeBackground();
   changeName()
 })
+//-------------------------------------------------------------------------------
 
+//Событие клика по строке плейлиста
 trackList.forEach((track, index) => {
   track.addEventListener('click', () => {
     const clickedIndex = Array.from(trackList).indexOf(track);
@@ -117,6 +133,8 @@ trackList.forEach((track, index) => {
     changeName()
   });
 });
+//-------------------------------------------------------------------------------
+
 
 function changeBackground() {
   let currentCover = playList[playNum].cover;
@@ -133,13 +151,26 @@ function changeName() {
 function trackActiveClass() {
   trackList.forEach((track) => {
     track.classList.remove('active');
-    trackList[playNum].classList.add('active');
-  })
-  playListPlayPause.forEach(() => {
-    playListPlayPause[playNum].classList.toggle('play-btn');
-    playListPlayPause[playNum].classList.toggle('pause-btn');
-  })
+  });
+
+  trackList[playNum].classList.add('active');
+
+  playListPlayPause.forEach((element, index) => {
+    if (index !== playNum) {
+      element.classList.remove('pause-btn');
+      element.classList.add('play-btn');
+    }
+  });
+
+  if (isTrackPlaying[playNum]) {
+    playListPlayPause[playNum].classList.remove('play-btn');
+    playListPlayPause[playNum].classList.add('pause-btn');
+  } else {
+    playListPlayPause[playNum].classList.remove('pause-btn');
+    playListPlayPause[playNum].classList.add('play-btn');
+  }
 }
+//-----------------------------------------------------------------------------
 
 //Вычисление длины треков
 audio.addEventListener('loadedmetadata', () => {
@@ -205,5 +236,17 @@ volumeLine.addEventListener('input', (event) => {
   let progressPercentage = event.target.value;
   event.target.style.background = 
   `linear-gradient(to right, #dbdb34 0%, #dbdb34 ${progressPercentage}%, #fff ${progressPercentage}%, white 100%)`
-})
+});
+//--------------------------------------------------------------------------------------
+
+//Вкл/вкл звука
+volumeBtn.addEventListener('click', () => {
+  if (audio.muted) {
+    audio.muted = false;
+    volumeBtn.classList.remove('mute');
+  } else {
+    audio.muted = true;
+    volumeBtn.classList.add('mute');
+  }
+});
 //--------------------------------------------------------------------------------------
