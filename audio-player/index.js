@@ -15,22 +15,22 @@ const audioFirst = document.getElementById('audio1');
 
 const playList = [
   {
-    url: 'http://127.0.0.1:5500/audio-player/assets/audio/Earth_Wind_Fire_-_Boogie_Wonderland_48181877.mp3',
+    url: './assets/audio/Earth_Wind_Fire_-_Boogie_Wonderland_48181877.mp3',
     name: 'Boogie Wonderland',
     autor: 'Earth, Wind & Fire',
-    cover: 'http://127.0.0.1:5500/audio-player/assets/img/earth_wind_fire_boogie_wonderland.jpg'
+    cover: './assets/img/earth_wind_fire_boogie_wonderland.jpg'
   },
   {
-    url: 'http://127.0.0.1:5500/audio-player/assets/audio/behappy.mp3',
+    url: './assets/audio/behappy.mp3',
     name: "Don't Worry Be Happy",
     autor: 'Bobby McFerrin',
-    cover: 'http://127.0.0.1:5500/audio-player/assets/img/behappy.jpg'
+    cover: './assets/img/behappy.jpg'
   },
   {
-    url: 'http://127.0.0.1:5500/audio-player/assets/audio/shampanskoch.mp3',
+    url: './assets/audio/shampanskoch.mp3',
     name: "Шампанські очі",
     autor: 'Скрябін',
-    cover: 'http://127.0.0.1:5500/audio-player/assets/img/shampanskochi.jpg'
+    cover: './assets/img/shampanskochi.jpg'
   }
 ]
 
