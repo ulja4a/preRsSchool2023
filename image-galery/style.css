@@ -32,7 +32,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0.3px 0.5rem;
 }
 
 /*.fas,
@@ -51,7 +51,9 @@ header {
 .search {
   width: 25%;
   min-width: 200px;
+  height: 30px;
   display: flex;
+  align-items: center;
   border: 1px solid orange;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(248, 100, 2, 0.2);
@@ -75,6 +77,17 @@ header {
 #input:-webkit-autofill:focus,
 #input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.search-icon {
+  font-size: 20px; /* Установите желаемый размер значка */
+  color: #95dd10; /* Установите желаемый цвет значка */
+  cursor: pointer; /* Изменение курсора при наведении */
+  margin-left: 5px;
+}
+
+.search-icon:hover {
+  color: #f10a0a; /* Измените цвет при наведении */
 }
 
 .pictures {
