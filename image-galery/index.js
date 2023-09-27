@@ -1,5 +1,5 @@
 const gallery = document.querySelector('.pictures');
-const input = document.getElementById('input');
+const input = document.querySelector('.input');
 const search = document.querySelector('.search-icon');
 
 url = `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&per_page=30&api_key=4e94dea62bb855253f145724d952eac2&extras=url_m&format=json&nojsoncallback=1`;
@@ -34,7 +34,7 @@ async function getData() {
   search.addEventListener('click', performSearch);
 
   document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("input").focus();
+    document.querySelector(".input").focus();
   });
 
 getData();

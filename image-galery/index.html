@@ -10,10 +10,13 @@
 <body>
   <header>
     <div class="wrapper wrapper_header">
-      <h1></i>Flickr API</h1>
+      <h1><svg class='camera_svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z"/></svg>
+        Flickr API</h1>
       <div class="search">
-        <input id="input" type="text" placeholder="Search...">
-        <span id="search-icon" class="search-icon">&#128269;</span>
+        <input class="input" type="search" placeholder="Search...">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256">
+            <g fill="#4d4d4d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M21,3c-9.39844,0 -17,7.60156 -17,17c0,9.39844 7.60156,17 17,17c3.35547,0 6.46094,-0.98437 9.09375,-2.65625l12.28125,12.28125l4.25,-4.25l-12.125,-12.09375c2.17969,-2.85937 3.5,-6.40234 3.5,-10.28125c0,-9.39844 -7.60156,-17 -17,-17zM21,7c7.19922,0 13,5.80078 13,13c0,7.19922 -5.80078,13 -13,13c-7.19922,0 -13,-5.80078 -13,-13c0,-7.19922 5.80078,-13 13,-13z"></path></g></g>
+        </svg>
       </div>
     </div>
   </header>
@@ -28,10 +31,10 @@
     <div class="box-footer">
       <p class="year">@ 2023</p>
       <a class="footer_link-github" href="https://github.com/ulja4a">
-      <img src="./assets/github.png" alt="github"></a>
+      <img class="footer_icon" src="./assets/github.png" alt="github"></a>
     </div>
     <a class="footer_link-rs-school" href="https://rs.school/js-stage0/">
-      <img src="./assets/rs-school.png" alt="RS School"></a>
+      <img class="footer_icon" src="./assets/rs-school.png" alt="RS School"></a>
   </footer>
   <script src="index.js"></script> 
 </body>
