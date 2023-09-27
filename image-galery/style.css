@@ -134,3 +134,16 @@ footer {
 .footer_icon {
   height: 2rem;
 }
+
+@media(max-width:480px) {
+  .wrapper_header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .search {
+    width: 70%;
+  }
+}
