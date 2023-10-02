@@ -2,7 +2,7 @@ const gallery = document.querySelector('.pictures');
 const input = document.querySelector('.input');
 const search = document.querySelector('.search-icon');
 
-url = `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&per_page=30&api_key=4e94dea62bb855253f145724d952eac2&extras=url_m&format=json&nojsoncallback=1`;
+url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&per_page=30&api_key=4e94dea62bb855253f145724d952eac2&tags=nature&tag_mode=all&extras=url_m&format=json&nojsoncallback=1`;
 
 async function getData() {
   let pictures = await fetch(url);
@@ -38,6 +38,3 @@ async function getData() {
   });
 
 getData();
-
-
-
