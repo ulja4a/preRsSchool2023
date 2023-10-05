@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: gray;
+  color: yellow;
+  font-family: 'Comic Neue', cursive;
+  font-size: 32px;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper_game {
+  margin: 0 auto;
+}
+
+canvas {
+  border: 3px solid yellow;
+}
+
+.header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.score {
+  padding: 5px;
+}
