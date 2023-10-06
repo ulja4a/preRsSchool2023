@@ -8,8 +8,8 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background: gray;
-  color: yellow;
+  background: radial-gradient(at top, #FEFFFF, #04504c);
+  color: #ffa000;
   font-family: 'Comic Neue', cursive;
   font-size: 32px;
 }
@@ -26,15 +26,73 @@ html, body {
 }
 
 canvas {
-  border: 3px solid yellow;
+  border: 3px solid #ffa000;
+  background: #37474F;
 }
 
 .header {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
 }
 
 .score {
-  padding: 5px;
+  padding: 5px 5px 0;
+}
+
+.table {
+  color: #91630e;
+  font-size: 32px;
+  font-family: 'Comic Neue', cursive;
+  cursor: pointer;
+  padding: 5px 5px 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.new_game {
+  color: #91630e;
+  font-size: 32px;
+  font-family: 'Comic Neue', cursive;
+  cursor: pointer;
+}
+
+.play_btn,
+.volume,
+.setting {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  margin: 5px;
+}
+
+.play {
+  background-image: url(./assets/img/play.png);
+}
+
+.pause {
+  background-image: url(./assets/img/pause.png);
+}
+
+.sound {
+  background-image: url(./assets/svg/sound.svg);
+}
+
+.mute {
+  background-image: url(./assets/svg/mute.svg);
+}
+
+.setting {
+  background-image: url(./assets/svg/setting.svg);
 }
