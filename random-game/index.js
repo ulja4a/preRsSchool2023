@@ -15,6 +15,7 @@ let intervalDraw = setInterval(  () => {
   drawGrid();
   drawScore();
   apple.draw();
+  snake.draw();
 }, 100);
 
 // Счет игры
@@ -44,6 +45,26 @@ Cell.prototype.drawSquare = function (color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, cellSize, cellSize);
 }
+
+let Snake = function () {
+  this.segments = [
+    new Cell(12, 5),
+    new Cell(11, 5),
+    new Cell(10, 5)
+  ]
+  this.direction = 'right';
+  this.nextDirection = 'right';
+}
+
+Snake.prototype.draw = function() {
+  for (i=0; i<this.segments.length; i++) {
+    ctx.globalAlpha = 0.3;
+    this.segments[i].drawSquare('blue');
+  }
+  ctx.globalAlpha = 1.0;
+}
+let snake = new Snake();
+//----------end-------------------------------------
 
 // Рисуем яблоко
 Cell.prototype.drawCircle = function (color) {
