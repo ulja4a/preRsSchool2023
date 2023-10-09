@@ -96,3 +96,42 @@ function drawGrid() {
   }
 }
 //------------------end--------------------------
+
+//Движение змейки
+Snake.prototype.move = function () {
+  let head = this.segments[0];
+  let newHead;
+  this.direction = this.nextDirection;
+
+  if (this.direction === 'right') {
+    newHead = new Cell(head.col+1, head.row);
+  } else if (this.direction === 'down') {
+    newHead = new Cell(head.col, head.row+1);
+  } else if (this.direction === 'left') {
+    newHead = new Cell(head.col-1, head.row);
+  } else if (this.direction === 'up') {
+    newHead = new Cell(head.col, head.row-1);
+  }
+}
+
+//Проверка столкновения змейки с яблоком или с собой
+Cell.prototype.equal = function (otherCell) {
+  return this.col === otherCell.col &&this.row === otherCell.row;
+}
+
+//Проверяем столкновение со стеной
+Snake.prototype.checkCollision = function (head) {
+  let leftCollision = (head.col === 0);
+  let topCollision = (head.row === 0);
+  let rightCollision = (head.col === widthCell-1);
+  let bottomCollision = (head.row === heightCell-1);
+  let wallCollision = leftCollision||topCollision||rightCollision||bottomCollision;
+  let selfCollision = false;
+  for (let i=0; i< this.segments.length; i++) {
+    if (this.equal(this.segments[i])) {
+      selfCollision = true;
+    }
+  }
+  return wallCollision||selfCollision;
+}
+//------------------------------end----------------------------
