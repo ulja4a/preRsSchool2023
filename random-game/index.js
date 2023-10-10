@@ -16,6 +16,7 @@ let intervalDraw = setInterval(  () => {
   drawScore();
   apple.draw();
   snake.draw();
+  snake.move();
 }, 100);
 
 // Счет игры
@@ -28,7 +29,15 @@ function drawScore()  {
 // Конец игры
 function gameOver()  {
   clearInterval(intervalDraw);
-  ctx.fillText('Game over', width/2, height/2)
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.globalAlpha = 1.0;
+  ctx.fillStyle = 'orange';
+  ctx.font = '64px cursive';
+  ctx.textAlign = 'center';
+  ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
 }
 //------------------end--------------------
 
@@ -48,9 +57,7 @@ Cell.prototype.drawSquare = function (color) {
 
 let Snake = function () {
   this.segments = [
-    new Cell(12, 5),
-    new Cell(11, 5),
-    new Cell(10, 5)
+    new Cell(12, 5)
   ]
   this.direction = 'right';
   this.nextDirection = 'right';
@@ -97,6 +104,29 @@ function drawGrid() {
 }
 //------------------end--------------------------
 
+//Проверка столкновения змейки с яблоком или с собой
+Cell.prototype.equal = function (otherCell) {
+  return this.col === otherCell.col &&this.row === otherCell.row;
+}
+//----------------------------end----------------
+
+//Проверяем столкновение со стеной
+Snake.prototype.checkCollision = function (head) {
+  let leftCollision = (head.col === 1);
+  let topCollision = (head.row === 1);
+  let rightCollision = (head.col === widthCell);
+  let bottomCollision = (head.row === heightCell);
+  let wallCollision = leftCollision||topCollision||rightCollision||bottomCollision;
+  let selfCollision = false;
+  for (let i=0; i< this.segments.length; i++) {
+    if (head.equal(this.segments[i])) {
+      selfCollision = true;
+    }
+  }
+  return wallCollision||selfCollision;
+}
+//------------------------------end----------------------------
+
 //Движение змейки
 Snake.prototype.move = function () {
   let head = this.segments[0];
@@ -112,26 +142,17 @@ Snake.prototype.move = function () {
   } else if (this.direction === 'up') {
     newHead = new Cell(head.col, head.row-1);
   }
-}
 
-//Проверка столкновения змейки с яблоком или с собой
-Cell.prototype.equal = function (otherCell) {
-  return this.col === otherCell.col &&this.row === otherCell.row;
-}
-
-//Проверяем столкновение со стеной
-Snake.prototype.checkCollision = function (head) {
-  let leftCollision = (head.col === 0);
-  let topCollision = (head.row === 0);
-  let rightCollision = (head.col === widthCell-1);
-  let bottomCollision = (head.row === heightCell-1);
-  let wallCollision = leftCollision||topCollision||rightCollision||bottomCollision;
-  let selfCollision = false;
-  for (let i=0; i< this.segments.length; i++) {
-    if (this.equal(this.segments[i])) {
-      selfCollision = true;
-    }
+  if (this.checkCollision(newHead)) {
+    gameOver();
+    return;
   }
-  return wallCollision||selfCollision;
+  this.segments.unshift(newHead);
+  if (newHead.equal(apple.position)) {
+    score++;
+    apple.move();
+  } else {
+    this.segments.pop();
+  }
 }
-//------------------------------end----------------------------
+
