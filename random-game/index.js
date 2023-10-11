@@ -10,14 +10,18 @@ const scoreElement = document.querySelector('.score');
 const playBtn = document.querySelector('.play');
 const pauseBtn = document.querySelector('.pause');
 
-let intervalDraw = setInterval(  () => {
+/*let animationTime = 100;
+let startGame = function () {
   ctx.clearRect (0, 0, width, height);
   drawGrid();
   drawScore();
-  apple.draw();
-  snake.draw();
-  snake.move();
-}, 100);
+
+  setTimeout(startGame, animationTime);
+}*/
+
+let startGame = false;
+let intervalDraw;
+
 
 // Счет игры
 function drawScore()  {
@@ -57,7 +61,7 @@ Cell.prototype.drawSquare = function (color) {
 
 let Snake = function () {
   this.segments = [
-    new Cell(12, 5)
+    new Cell(0, 5)
   ]
   this.direction = 'right';
   this.nextDirection = 'right';
@@ -66,7 +70,7 @@ let Snake = function () {
 Snake.prototype.draw = function() {
   for (i=0; i<this.segments.length; i++) {
     ctx.globalAlpha = 0.3;
-    this.segments[i].drawSquare('blue');
+    this.segments[i].drawSquare('LimeGreen');
   }
   ctx.globalAlpha = 1.0;
 }
@@ -87,9 +91,15 @@ let Apple = function() {
   this.position = new Cell(10, 10);
 }
 Apple.prototype.draw = function() {
-  this.position.drawCircle('LimeGreen');
+  this.position.drawCircle('red');
 }
 let apple = new Apple();
+
+Apple.prototype.move = function () {
+  let randomeCol = Math.floor(Math.random()*(widthCell-2))+1;
+  let randomeRow = Math.floor(Math.random()*(heightCell-2))+1;
+  this.position = new Cell(randomeCol, randomeRow);
+}
 //---------end----------------------------------
 
 // Рисуем сетку
@@ -112,10 +122,10 @@ Cell.prototype.equal = function (otherCell) {
 
 //Проверяем столкновение со стеной
 Snake.prototype.checkCollision = function (head) {
-  let leftCollision = (head.col === 1);
-  let topCollision = (head.row === 1);
-  let rightCollision = (head.col === widthCell);
-  let bottomCollision = (head.row === heightCell);
+  let leftCollision = (head.col === -1);
+  let topCollision = (head.row === -1);
+  let rightCollision = (head.col === (widthCell));
+  let bottomCollision = (head.row === (heightCell));
   let wallCollision = leftCollision||topCollision||rightCollision||bottomCollision;
   let selfCollision = false;
   for (let i=0; i< this.segments.length; i++) {
@@ -156,3 +166,52 @@ Snake.prototype.move = function () {
   }
 }
 
+//События на клавиатуре, движение змейки стрелками
+let directions = {
+  37: "left",
+  38: "up",
+  39: "right",
+  40: "down"
+}
+
+Snake.prototype.setDirection = function (newDirection) {
+  if ( this.direction === "up" && newDirection === "down") {
+    return;
+  } else if (this.direction === "right" && newDirection === "left") {
+    return;
+  } else if (this.direction === "down" && newDirection === "up") {
+    return;
+  } else if (this.direction === "left" && newDirection === "right") {
+    return;
+  }
+  this.nextDirection = newDirection;
+}
+
+function initialDisplay() {
+  ctx.clearRect(0, 0, width, height);
+  drawGrid();
+  drawScore();
+  apple.draw();
+  snake.draw();
+}
+
+initialDisplay();
+
+document.addEventListener('keydown', (e) => {
+  let newDirection = directions[e.keyCode];
+
+  if (newDirection !== undefined) {
+    if (!startGame) {
+      startGame = true;
+      intervalDraw = setInterval(() => {
+        ctx.clearRect(0, 0, width, height);
+        drawGrid();
+        drawScore();
+        apple.draw();
+        snake.draw();
+        snake.move();
+      }, 500);
+    }
+    snake.setDirection(newDirection);
+  }
+})
