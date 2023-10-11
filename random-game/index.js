@@ -9,6 +9,10 @@ let score = 0;
 const scoreElement = document.querySelector('.score');
 const playBtn = document.querySelector('.play');
 const pauseBtn = document.querySelector('.pause');
+const newGame = document.querySelector('.new_game');
+const setting = document.querySelector('.setting');
+const sound = document.querySelector('.sound');
+const mute = document.querySelector('.mute');
 
 /*let animationTime = 100;
 let startGame = function () {
@@ -187,6 +191,7 @@ Snake.prototype.setDirection = function (newDirection) {
   this.nextDirection = newDirection;
 }
 
+//Инициализация игры при загрузке
 function initialDisplay() {
   ctx.clearRect(0, 0, width, height);
   drawGrid();
@@ -197,6 +202,8 @@ function initialDisplay() {
 
 initialDisplay();
 
+
+//Старт игры при нажатии стрелки
 document.addEventListener('keydown', (e) => {
   let newDirection = directions[e.keyCode];
 
@@ -215,3 +222,17 @@ document.addEventListener('keydown', (e) => {
     snake.setDirection(newDirection);
   }
 })
+
+//Новая игра при нажатии на new Game
+newGame.addEventListener('click', () => {
+  if (intervalDraw) {
+    clearInterval(intervalDraw);
+  }
+  startGame = false;
+  score = 0;
+  apple.move();
+  snake = new Snake;
+  snake.move();
+  ctx.clearRect(0, 0, width, height);
+  initialDisplay();
+});
