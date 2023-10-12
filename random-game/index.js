@@ -7,6 +7,7 @@ let widthCell = width / cellSize;
 let heightCell = height / cellSize;
 let score = 0;
 const scoreElement = document.querySelector('.score');
+const play = document.querySelector('.play_btn');
 const playBtn = document.querySelector('.play');
 const pauseBtn = document.querySelector('.pause');
 const newGame = document.querySelector('.new_game');
@@ -24,6 +25,7 @@ let startGame = function () {
 }*/
 
 let startGame = false;
+let gamePaused = false;
 let intervalDraw;
 
 
@@ -217,7 +219,7 @@ document.addEventListener('keydown', (e) => {
         apple.draw();
         snake.draw();
         snake.move();
-      }, 500);
+      }, 300);
     }
     snake.setDirection(newDirection);
   }
@@ -235,4 +237,55 @@ newGame.addEventListener('click', () => {
   snake.move();
   ctx.clearRect(0, 0, width, height);
   initialDisplay();
+  play.classList.remove('pause');
 });
+
+function toggleGamePause() {
+  if (gamePaused) {
+    intervalDraw = setInterval(() => {
+      ctx.clearRect(0, 0, width, height);
+      drawGrid();
+      drawScore();
+      apple.draw();
+      snake.draw();
+      snake.move();
+    }, 300);
+  } else {
+    clearInterval(intervalDraw);
+  }
+}
+
+//Работа кнопки play/pause, старт вначале и пауза/продолжение во время игры
+play.addEventListener('click', ()=> {
+  if (!startGame) {
+    startGame = true;
+    gamePaused = false;
+    initialDisplay();
+    play.classList.toggle('pause');
+    intervalDraw = setInterval(() => {
+      ctx.clearRect(0, 0, width, height);
+      drawGrid();
+      drawScore();
+      apple.draw();
+      snake.draw();
+      snake.move();
+    }, 300);
+  } else {
+    if (!gamePaused) {
+      gamePaused = true;
+      clearInterval(intervalDraw);
+      play.classList.toggle('pause');
+    } else {
+      gamePaused = false;
+      play.classList.toggle('pause');
+      intervalDraw = setInterval(() => {
+        ctx.clearRect(0, 0, width, height);
+        drawGrid();
+        drawScore();
+        apple.draw();
+        snake.draw();
+        snake.move();
+      }, 300);
+    }
+  }
+})
