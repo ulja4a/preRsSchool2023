@@ -96,3 +96,36 @@ button {
 .setting {
   background-image: url(./assets/svg/setting.svg);
 }
+
+.footer__container {
+  max-width: 400px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__year {
+  color: black;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.footer__school {
+  display: block;
+  width: 60px;
+  height: 25px;
+  transition: all 0.3s;
+}
+
+img {
+  vertical-align: top;
+}
+
+.footer__github {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}

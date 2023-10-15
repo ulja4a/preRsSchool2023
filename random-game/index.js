@@ -15,14 +15,12 @@ const setting = document.querySelector('.setting');
 const sound = document.querySelector('.sound');
 const mute = document.querySelector('.mute');
 
-/*let animationTime = 100;
-let startGame = function () {
-  ctx.clearRect (0, 0, width, height);
-  drawGrid();
-  drawScore();
+let music = createMusic("./assets/audio/music.mp3");
+music.loop = true;
 
-  setTimeout(startGame, animationTime);
-}*/
+let isPlay = false;
+let isMute = false;
+let pause = false;
 
 let startGame = false;
 let gamePaused = false;
@@ -33,23 +31,9 @@ let intervalDraw;
 function drawScore()  {
   scoreElement.style.color = "#91630e";
   scoreElement.textContent = `Score: ${score}`;
+  console.log(score)
 }
 //----------------end---------------------------
-
-// Конец игры
-function gameOver()  {
-  clearInterval(intervalDraw);
-  ctx.globalAlpha = 0.7;
-  ctx.fillStyle = 'black';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  ctx.globalAlpha = 1.0;
-  ctx.fillStyle = 'orange';
-  ctx.font = '64px cursive';
-  ctx.textAlign = 'center';
-  ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
-}
-//------------------end--------------------
 
 // Ячейки
 let Cell = function (col, row) {
@@ -160,17 +144,20 @@ Snake.prototype.move = function () {
   }
 
   if (this.checkCollision(newHead)) {
-    gameOver();
+    gameOver(score);
     return;
   }
   this.segments.unshift(newHead);
   if (newHead.equal(apple.position)) {
     score++;
+    drawScore();
+    console.log(score);
     apple.move();
   } else {
     this.segments.pop();
   }
 }
+
 
 //События на клавиатуре, движение змейки стрелками
 let directions = {
@@ -208,10 +195,14 @@ initialDisplay();
 //Старт игры при нажатии стрелки
 document.addEventListener('keydown', (e) => {
   let newDirection = directions[e.keyCode];
-
+  play.classList.add('pause');
+  //music.play();
+ 
+  
   if (newDirection !== undefined) {
     if (!startGame) {
       startGame = true;
+      
       intervalDraw = setInterval(() => {
         ctx.clearRect(0, 0, width, height);
         drawGrid();
@@ -219,7 +210,7 @@ document.addEventListener('keydown', (e) => {
         apple.draw();
         snake.draw();
         snake.move();
-      }, 300);
+      }, speed);
     }
     snake.setDirection(newDirection);
   }
@@ -227,6 +218,7 @@ document.addEventListener('keydown', (e) => {
 
 //Новая игра при нажатии на new Game
 newGame.addEventListener('click', () => {
+  music.pause();
   if (intervalDraw) {
     clearInterval(intervalDraw);
   }
@@ -238,6 +230,10 @@ newGame.addEventListener('click', () => {
   ctx.clearRect(0, 0, width, height);
   initialDisplay();
   play.classList.remove('pause');
+  if (isPlay) {
+    music.pause();
+    isPlay = false;
+  }
 });
 
 function toggleGamePause() {
@@ -249,7 +245,7 @@ function toggleGamePause() {
       apple.draw();
       snake.draw();
       snake.move();
-    }, 300);
+    }, speed);
   } else {
     clearInterval(intervalDraw);
   }
@@ -262,6 +258,7 @@ play.addEventListener('click', ()=> {
     gamePaused = false;
     initialDisplay();
     play.classList.toggle('pause');
+    //music.play();
     intervalDraw = setInterval(() => {
       ctx.clearRect(0, 0, width, height);
       drawGrid();
@@ -269,14 +266,16 @@ play.addEventListener('click', ()=> {
       apple.draw();
       snake.draw();
       snake.move();
-    }, 300);
+    }, speed);
   } else {
     if (!gamePaused) {
       gamePaused = true;
       clearInterval(intervalDraw);
       play.classList.toggle('pause');
+      //music.pause();
     } else {
       gamePaused = false;
+      //music.play();
       play.classList.toggle('pause');
       intervalDraw = setInterval(() => {
         ctx.clearRect(0, 0, width, height);
@@ -285,7 +284,77 @@ play.addEventListener('click', ()=> {
         apple.draw();
         snake.draw();
         snake.move();
-      }, 300);
+      }, speed);
     }
   }
 })
+
+
+// Конец игры
+function gameOver(score)  {
+  clearInterval(intervalDraw);
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.globalAlpha = 1.0;
+  ctx.fillStyle = 'orange';
+  ctx.font = '64px cursive';
+  ctx.textAlign = 'center';
+  ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2 - 32);
+  ctx.font = '24px cursive';
+  ctx.fillText(`Your Score : ${score}`, canvas.width / 2, canvas.height / 2 + 32);
+}
+//------------------end--------------------
+
+//Музыка в игре
+function createMusic(path) {
+  let music = new Audio();
+  music.src = path;
+  music.volume = 0.2;
+  return music;
+}
+
+function playPause() {
+  console.log(0);
+  if (isPlay) {
+    if (sound.classList.contains('mute')) {
+      music.volume = 0;
+    }
+    console.log(isPlay);
+    music.pause();
+    isPlay = false;
+  } else {
+    console.log(1);
+    if (sound.classList.contains('mute')) {
+      music.volume = 0;
+    } else {
+      console.log(2);
+      if (startGame) {
+      music.volume = 0.2;
+      }
+        else {
+          console.log(3);
+          music.volume = 0;
+        }
+    }
+    console.log(isPlay);
+    music.play();
+    isPlay = true;
+  }
+}
+
+/*sound.addEventListener('click', () => {
+  if (startGame) {
+    sound.classList.toggle('mute');
+    playPause();
+  } else {
+    sound.classList.toggle('mute');
+    music.volume = 0;
+  }
+})*/
+sound.addEventListener('click', () => {
+  sound.classList.toggle('mute');
+  playPause();
+})
+
