@@ -6,6 +6,7 @@ let cellSize = 20;
 let widthCell = width / cellSize;
 let heightCell = height / cellSize;
 let score = 0;
+let speed = 300;
 const scoreElement = document.querySelector('.score');
 const play = document.querySelector('.play_btn');
 const playBtn = document.querySelector('.play');
@@ -14,10 +15,10 @@ const newGame = document.querySelector('.new_game');
 const setting = document.querySelector('.setting');
 const sound = document.querySelector('.sound');
 const mute = document.querySelector('.mute');
+const tableScore = document.querySelector('.table');
 
 let music = createMusic("./assets/audio/music.mp3");
 music.loop = true;
-
 let isPlay = false;
 let isMute = false;
 let pause = false;
@@ -25,13 +26,14 @@ let pause = false;
 let startGame = false;
 let gamePaused = false;
 let intervalDraw;
+let isTableOpen = false;
+let isGameOver = false;
 
 
 // Счет игры
 function drawScore()  {
   scoreElement.style.color = "#91630e";
   scoreElement.textContent = `Score: ${score}`;
-  console.log(score)
 }
 //----------------end---------------------------
 
@@ -292,6 +294,7 @@ play.addEventListener('click', ()=> {
 
 // Конец игры
 function gameOver(score)  {
+  isGameOver = true;
   clearInterval(intervalDraw);
   ctx.globalAlpha = 0.7;
   ctx.fillStyle = 'black';
@@ -304,6 +307,7 @@ function gameOver(score)  {
   ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2 - 32);
   ctx.font = '24px cursive';
   ctx.fillText(`Your Score : ${score}`, canvas.width / 2, canvas.height / 2 + 32);
+  saveScoreToLocalStorage(score);
 }
 //------------------end--------------------
 
@@ -344,7 +348,7 @@ function playPause() {
   }
 }
 
-/*sound.addEventListener('click', () => {
+sound.addEventListener('click', () => {
   if (startGame) {
     sound.classList.toggle('mute');
     playPause();
@@ -352,9 +356,101 @@ function playPause() {
     sound.classList.toggle('mute');
     music.volume = 0;
   }
-})*/
-sound.addEventListener('click', () => {
+})
+/*sound.addEventListener('click', () => {
   sound.classList.toggle('mute');
   playPause();
+})*/
+
+// Таблица score
+function saveScoreToLocalStorage(score) {
+  let scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+  if (scores.length >= 10) {
+    scores.shift();
+  }
+
+  scores.push(score);
+  localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+function getLast10ScoresFromLocalStorage() {
+  let scores = JSON.parse(localStorage.getItem('scores')) || [];
+  scores.sort((a, b) => b - a);
+  return scores.slice(0, 10);
+}
+
+function table()  {
+  clearInterval(intervalDraw);
+  isTableOpen = true;
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.globalAlpha = 1.0;
+  ctx.fillStyle = 'orange';
+  ctx.font = '24px cursive';
+  ctx.textAlign = 'center';
+  ctx.fillText('Table Score', canvas.width / 2, 30);
+  
+  const scores = getLast10ScoresFromLocalStorage();
+  ctx.textAlign = 'left';
+  ctx.font = '16px cursive';
+  ctx.fillStyle = 'white';
+
+  // Отображаем последние 10 результатов в таблице
+  for (let i = 0; i < scores.length; i++) {
+    ctx.fillText(`${i + 1}:     ${scores[i]}`, 20, 60 + 20 * i);
+  }
+}
+
+tableScore.addEventListener('click', () => {
+  table();
+  isTableOpen = true;
 })
 
+function closeTable() {
+  isTableOpen = false;
+  if (!startGame) {
+    startGame = true;
+    gamePaused = false;
+    initialDisplay();
+    play.classList.toggle('pause');
+    //music.play();
+    intervalDraw = setInterval(() => {
+      ctx.clearRect(0, 0, width, height);
+      drawGrid();
+      drawScore();
+      apple.draw();
+      snake.draw();
+      snake.move();
+    }, speed);
+  } else {
+    if (!gamePaused) {
+      gamePaused = true;
+      clearInterval(intervalDraw);
+      play.classList.toggle('pause');
+      //music.pause();
+    } else {
+      gamePaused = false;
+      //music.play();
+      play.classList.toggle('pause');
+      intervalDraw = setInterval(() => {
+        ctx.clearRect(0, 0, width, height);
+        drawGrid();
+        drawScore();
+        apple.draw();
+        snake.draw();
+        snake.move();
+      }, speed);
+    }
+  }
+}
+
+
+canvas.addEventListener('click', (e) => {
+  console.log(isTableOpen);
+  if (isTableOpen) {
+      closeTable();
+    }
+})
