@@ -1,3 +1,5 @@
+import myscore from './assets/script/myscore.js';
+console.log(myscore);
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const width = canvas.width;
@@ -60,7 +62,7 @@ let Snake = function () {
 }
 
 Snake.prototype.draw = function() {
-  for (i=0; i<this.segments.length; i++) {
+  for (let i=0; i<this.segments.length; i++) {
     ctx.globalAlpha = 0.3;
     this.segments[i].drawSquare('LimeGreen');
   }
@@ -153,7 +155,6 @@ Snake.prototype.move = function () {
   if (newHead.equal(apple.position)) {
     score++;
     drawScore();
-    console.log(score);
     apple.move();
   } else {
     this.segments.pop();
@@ -198,9 +199,9 @@ initialDisplay();
 document.addEventListener('keydown', (e) => {
   let newDirection = directions[e.keyCode];
   play.classList.add('pause');
-  //music.play();
- 
-  
+  if (sound.className.indexOf('mute') === -1) {
+     music.play();
+  }
   if (newDirection !== undefined) {
     if (!startGame) {
       startGame = true;
@@ -260,7 +261,7 @@ play.addEventListener('click', ()=> {
     gamePaused = false;
     initialDisplay();
     play.classList.toggle('pause');
-    //music.play();
+    music.play();
     intervalDraw = setInterval(() => {
       ctx.clearRect(0, 0, width, height);
       drawGrid();
@@ -274,10 +275,10 @@ play.addEventListener('click', ()=> {
       gamePaused = true;
       clearInterval(intervalDraw);
       play.classList.toggle('pause');
-      //music.pause();
+      music.pause();
     } else {
       gamePaused = false;
-      //music.play();
+      music.play();
       play.classList.toggle('pause');
       intervalDraw = setInterval(() => {
         ctx.clearRect(0, 0, width, height);
@@ -295,6 +296,7 @@ play.addEventListener('click', ()=> {
 // Конец игры
 function gameOver(score)  {
   isGameOver = true;
+  music.volume = 0;
   clearInterval(intervalDraw);
   ctx.globalAlpha = 0.7;
   ctx.fillStyle = 'black';
@@ -320,35 +322,29 @@ function createMusic(path) {
 }
 
 function playPause() {
-  console.log(0);
   if (isPlay) {
     if (sound.classList.contains('mute')) {
       music.volume = 0;
     }
-    console.log(isPlay);
     music.pause();
     isPlay = false;
   } else {
-    console.log(1);
     if (sound.classList.contains('mute')) {
       music.volume = 0;
     } else {
-      console.log(2);
       if (startGame) {
       music.volume = 0.2;
       }
         else {
-          console.log(3);
           music.volume = 0;
         }
     }
-    console.log(isPlay);
     music.play();
     isPlay = true;
   }
 }
 
-sound.addEventListener('click', () => {
+/*sound.addEventListener('click', () => {
   if (startGame) {
     sound.classList.toggle('mute');
     playPause();
@@ -356,11 +352,11 @@ sound.addEventListener('click', () => {
     sound.classList.toggle('mute');
     music.volume = 0;
   }
-})
-/*sound.addEventListener('click', () => {
+})*/
+sound.addEventListener('click', () => {
   sound.classList.toggle('mute');
   playPause();
-})*/
+})
 
 // Таблица score
 function saveScoreToLocalStorage(score) {
